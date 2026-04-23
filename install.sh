@@ -26,8 +26,24 @@ RESET="\033[0m"
 
 echo ""
 echo -e "${BLUE}AI Weekender${RESET} — GrowthX handbook"
-echo -e "${DIM}${PWD}${RESET}"
 echo ""
+echo -e "  ${DIM}installing to:${RESET} ${YELLOW}${PWD}${RESET}"
+echo ""
+
+# ── 0. Sanity check — is this even a code project? ─────────────
+# If there's no sign of a project here, warn loudly and give them a chance to bail.
+if [ ! -d .git ] && [ ! -f package.json ] && [ ! -f pyproject.toml ] && [ ! -f Cargo.toml ] && [ ! -f Gemfile ] && [ ! -d src ] && [ ! -d app ] && [ ! -d convex ]; then
+  echo -e "${YELLOW}⚠  heads up${RESET}"
+  echo -e "   this folder doesn't look like a code project."
+  echo -e "   no .git, package.json, pyproject.toml, or project folder."
+  echo ""
+  echo -e "   if this isn't your weekender project, ${RED}press Ctrl+C now${RESET}"
+  echo -e "   and cd into the right folder before running again."
+  echo ""
+  echo -e "   ${DIM}continuing in 5 seconds...${RESET}"
+  sleep 5
+  echo ""
+fi
 
 # ── 1. Detect: fresh install vs update ─────────────────────────
 MODE="install"
