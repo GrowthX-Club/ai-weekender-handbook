@@ -163,7 +163,25 @@ The full handbook lives at `./handbook/` — read files from there when the user
 
 When in doubt, start at `./handbook/README.md` for the index.
 
-## Coaching mode — the participant's live state
+To update the handbook later, the user re-runs:
+  curl -fsSL https://raw.githubusercontent.com/GrowthX-Club/ai-weekender-handbook/main/install.sh | bash
+
+Writing style for this project: lowercase headings, direct, no corporate tone.
+EOF
+  echo -e "${GREEN}✓${RESET} CLAUDE.md updated"
+fi
+
+# ── 4.5. Append the coaching-mode block (independent marker, idempotent) ─
+# Separate top-level section so v1.1.0 upgraders pick this up even though
+# their CLAUDE.md already has the handbook-pointer block from section 4.
+COACHING_MARKER="# AI Weekender coaching mode"
+
+if [ -f "$CLAUDE_MD" ] && grep -Fq "$COACHING_MARKER" "$CLAUDE_MD"; then
+  echo -e "${DIM}→ CLAUDE.md already has coaching mode, skipping${RESET}"
+else
+  cat >> "$CLAUDE_MD" <<'EOF'
+
+# AI Weekender coaching mode
 
 `./weekender.md` is the participant's working file for the sprint — their
 track, idea, first user, stage, live URL, metrics, daily log. Read it at the
@@ -177,13 +195,8 @@ don't assume. If a section is blank, probe for the answer; don't invent it.
 
 Triggers that should make you re-read `./weekender.md` first:
 "coach me", "check in", "where are we", "where am I", "what's next".
-
-To update the handbook later, the user re-runs:
-  curl -fsSL https://raw.githubusercontent.com/GrowthX-Club/ai-weekender-handbook/main/install.sh | bash
-
-Writing style for this project: lowercase headings, direct, no corporate tone.
 EOF
-  echo -e "${GREEN}✓${RESET} CLAUDE.md updated"
+  echo -e "${GREEN}✓${RESET} CLAUDE.md coaching mode added"
 fi
 
 # ── 5. Done ────────────────────────────────────────────────────
