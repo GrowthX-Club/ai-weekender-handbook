@@ -125,6 +125,20 @@ rm -rf "$TMP_DIR"
 NEW_VERSION="$(cat ./handbook/$MARKER_FILE | tr -d '[:space:]')"
 echo -e "${GREEN}✓${RESET} handbook installed at ./handbook/ (version: ${NEW_VERSION})"
 
+# ── 3.5. Seed the participant's live-state file (never overwrite) ─
+# weekender.md is the participant's working file for the sprint — their track,
+# idea, user, stage, metrics, daily log. Claude reads it at every coaching
+# check-in. The template is seeded once; we never touch it after that — the
+# participant owns it.
+if [ -f "$SOURCE_DIR/weekender.md.template" ]; then
+  if [ ! -f "./weekender.md" ]; then
+    cp "$SOURCE_DIR/weekender.md.template" ./weekender.md
+    echo -e "${GREEN}✓${RESET} seeded ./weekender.md (your live project state — fill it in)"
+  else
+    echo -e "${DIM}→ ./weekender.md already exists, leaving it alone${RESET}"
+  fi
+fi
+
 # ── 4. Append a pointer to CLAUDE.md (only on fresh install) ───
 CLAUDE_MD="./CLAUDE.md"
 MARKER_BLOCK="# AI Weekender context"
@@ -148,6 +162,21 @@ The full handbook lives at `./handbook/` — read files from there when the user
 - day-by-day outcomes (see `./handbook/02-how-the-week-runs.md`)
 
 When in doubt, start at `./handbook/README.md` for the index.
+
+## Coaching mode — the participant's live state
+
+`./weekender.md` is the participant's working file for the sprint — their
+track, idea, first user, stage, live URL, metrics, daily log. Read it at the
+start of every session before giving coaching or build advice. Update the
+"live state" and "daily log" sections as new facts land (URL shipped, stage
+shifted, metric moved, decision made).
+
+The participant writes and owns this file. Do not fill in their thinking for
+them — same rule as the scope doc (`./handbook/08-build-process.md`). Ask,
+don't assume. If a section is blank, probe for the answer; don't invent it.
+
+Triggers that should make you re-read `./weekender.md` first:
+"coach me", "check in", "where are we", "where am I", "what's next".
 
 To update the handbook later, the user re-runs:
   curl -fsSL https://raw.githubusercontent.com/GrowthX-Club/ai-weekender-handbook/main/install.sh | bash

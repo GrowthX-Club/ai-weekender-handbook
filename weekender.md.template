@@ -1,0 +1,86 @@
+# weekender — my live project state
+
+My working file for the 4-day sprint. Claude re-reads this at the start of every session and keeps it fresh as things change. If I say **"coach me"** or **"check in"**, Claude reads this first before answering.
+
+> ⚠ **I fill this in. Not the AI.** Same rule as the scope doc (see `./handbook/08-build-process.md`). Claude can append to the daily log and update facts I've stated out loud — it does not do the thinking for me.
+
+---
+
+## who I am
+
+- **name:**
+- **what I do all day (2+ years):**
+- **my AI builder level today (L1–L4 ladder, see `./handbook/01-welcome.md`):**
+- **hours I can realistically give wed→sat (be honest):**
+
+## the track
+
+- **track (pick one):** 🎯 virality · 💰 revenue · 🤖 maas
+- **why this track — my unfair advantage / founder-market fit:**
+
+> the three tracks + how to pick: `./handbook/06-pick-an-idea.md`. when in doubt, default to virality or revenue.
+
+## the idea
+
+- **one-line pitch — who does what, what they get back:**
+- **first user by name (not a persona — a real person):**
+- **the pain they feel today:**
+- **what they do right now instead:**
+- **the artifact they walk away with** (virality track especially — the thing they'd screenshot):
+
+## deliberate subtraction
+
+3 things I will **not** build. scope is subtraction.
+
+1.
+2.
+3.
+
+## distribution plan
+
+- **where my first 100 users come from on thursday** (LinkedIn, WhatsApp group, slack, X, a friend who'll post, cold DMs — be specific):
+- **launch post hook — one sentence, no workshopping:**
+
+## live state — update as things change
+
+- **current stage:** scoping / waitlist live / building / shipping / submitted
+- **live URL:**
+- **github repo:**
+- **track metric right now:**
+  - virality → signups, impressions, visitors, amplification
+  - revenue → signups, revenue (USD), waitlist, live product quality
+  - maas → real output shipped on a real surface
+- **today's blocker:**
+
+## daily log — claude appends, I own
+
+handbook outcomes for each day: `./handbook/02-how-the-week-runs.md`. rubric levels referenced below (L2, L3, L5) are the scoring rubric in `./handbook/09-scoring.md`, not the builder ladder above.
+
+### wed 22 apr — lock idea, set up stack, understand build process
+- outcome: idea locked, stack set up (claude code, convex, vercel, github), waitlist page started.
+- notes:
+
+### thu 23 apr — waitlist live by 11am, then build
+- outcome: waitlist public + launch post out by 11am. rubric target by midnight: **some params at L2**.
+- notes:
+
+### fri 24 apr — push params to L3
+- outcome: real product flow end-to-end, not just the waitlist. rubric target: **some params at L3**.
+- notes:
+
+### sat 25 apr — keep racking points, submit 8pm
+- outcome: final submission at 8pm. hard cutoff. deliverables: live URL, repo, track metrics.
+- notes:
+
+### sun 26 apr — showcase
+- outcome: top two present. everyone who submitted gets direct feedback.
+- notes:
+
+## my failure mode (pre-diagnosed)
+
+- **where I tend to get stuck** (scope creep / perfectionism / doom-scrolling / shiny objects / abandoning at 70% / imposter panic):
+- **what claude should do when it spots this in real time:**
+
+## the rule
+
+scope. then POC. then build. always. I am the manager. claude is the intern. showing up is the only rule.
