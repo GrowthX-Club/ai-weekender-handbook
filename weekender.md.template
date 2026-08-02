@@ -1,4 +1,4 @@
-# weekender — my live project state
+# AI Immersion — my live project state
 
 My working file for the 4-day sprint. Claude re-reads this at the start of every session and keeps it fresh as things change. If I say **"coach me"** or **"check in"**, Claude reads this first before answering.
 
@@ -11,11 +11,11 @@ My working file for the 4-day sprint. Claude re-reads this at the start of every
 - **name:**
 - **what I do all day (2+ years):**
 - **my AI builder level today (L1–L4 ladder, see `./handbook/01-welcome.md`):**
-- **hours I can realistically give wed→sat (be honest):**
+- **hours I can realistically give thu→sun (be honest):**
 
 ## the track
 
-- **track (pick one):** 🎯 virality · 💰 revenue · 🤖 maas
+- **track (pick one):** 🎯 virality · 💰 revenue · 🤖 AI Agent as a Service
 - **why this track — my unfair advantage / founder-market fit:**
 
 > the three tracks + how to pick: `./handbook/06-pick-an-idea.md`. when in doubt, default to virality or revenue.
@@ -49,31 +49,27 @@ My working file for the 4-day sprint. Claude re-reads this at the start of every
 - **track metric right now:**
   - virality → signups, impressions, visitors, amplification
   - revenue → signups, revenue (USD), waitlist, live product quality
-  - maas → real output shipped on a real surface
+  - AI Agent as a Service → real output shipped on a real surface
 - **today's blocker:**
 
 ## daily log — claude appends, I own
 
 handbook outcomes for each day: `./handbook/02-how-the-week-runs.md`. rubric levels referenced below (L2, L3, L5) are the scoring rubric in `./handbook/09-scoring.md`, not the builder ladder above.
 
-### wed 22 apr — lock idea, set up stack, understand build process
+### thu 30 jul — lock idea, set up stack, understand build process
 - outcome: idea locked, stack set up (claude code, convex, vercel, github), waitlist page started.
 - notes:
 
-### thu 23 apr — waitlist live by 11am, then build
+### fri 31 jul — waitlist live by 11am, then build
 - outcome: waitlist public + launch post out by 11am. rubric target by midnight: **some params at L2**.
 - notes:
 
-### fri 24 apr — push params to L3
+### sat 1 aug — 11am Q&A, push params to L3
 - outcome: real product flow end-to-end, not just the waitlist. rubric target: **some params at L3**.
 - notes:
 
-### sat 25 apr — keep racking points, submit 8pm
-- outcome: final submission at 8pm. hard cutoff. deliverables: live URL, repo, track metrics.
-- notes:
-
-### sun 26 apr — showcase
-- outcome: top two present. everyone who submitted gets direct feedback.
+### sun 2 aug — morning Q&A, keep racking points, submit by 8pm IST
+- outcome: final submission by 8pm IST. hard cutoff. deliverables: live URL, public repo, track metrics. everyone who submits gets an individual review.
 - notes:
 
 ## my failure mode (pre-diagnosed)

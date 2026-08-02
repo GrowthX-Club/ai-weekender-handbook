@@ -1,0 +1,331 @@
+{
+  "$schema": "../rubric.schema.json",
+  "program": "AI Immersion",
+  "version": "2.2.0",
+  "status": "canonical",
+  "score_formula": "(level - 1) * weight",
+  "level_range": [1, 5],
+  "tracks": [
+    {
+      "id": "virality",
+      "stored_enum": "virality",
+      "public_name": "Virality",
+      "base_max": 164,
+      "parameters": [
+        {
+          "id": "virality.impressions",
+          "public_name": "Impressions and views",
+          "weight": 1,
+          "base_max": 4,
+          "levels": ["Under 500", "501 to 5k", "5k to 15k", "15k to 30k", "30k to 50k"],
+          "overflow": { "starts_after": 50000, "unit": "weighted_impressions", "increment": 5000, "points_per_increment": 1 }
+        },
+        {
+          "id": "virality.reactions",
+          "public_name": "Reactions and comments",
+          "weight": 2,
+          "base_max": 8,
+          "levels": ["Under 15", "15 to 50", "51 to 150", "151 to 300", "301 to 600"],
+          "overflow": { "starts_after": 600, "unit": "weighted_reactions", "increment": 50, "points_per_increment": 2 }
+        },
+        {
+          "id": "virality.amplification",
+          "public_name": "Amplification quality",
+          "weight": 3,
+          "base_max": 12,
+          "levels": [
+            "None",
+            "1-2 peer builders commenting or liking",
+            "3+ peer builders engaging, or 1 sub-10k-follower founder/operator engaging",
+            "1 notable (10k+) founder or operator reshare",
+            "Multiple notables engaging, PH feature, press, or known investor amplification"
+          ],
+          "overflow": null
+        },
+        {
+          "id": "virality.visitors",
+          "public_name": "Visitors to product",
+          "weight": 10,
+          "base_max": 40,
+          "levels": ["Under 50", "51 to 250", "251 to 1,000", "1,001 to 3,000", "3,000+"],
+          "overflow": { "starts_after": 3000, "unit": "unique_visitors", "increment": 300, "points_per_increment": 10 },
+          "evidence_rule": { "requires": "read_only_analytics_access", "missing_evidence_cap_level": 2 }
+        },
+        {
+          "id": "virality.signups",
+          "public_name": "Signups or meaningful actions",
+          "weight": 25,
+          "base_max": 100,
+          "levels": ["Up to 25", "26 to 100", "101 to 500", "501 to 1,500", "1,501 to 5,000"],
+          "overflow": { "starts_after": 5000, "unit": "signups", "increment": 200, "points_per_increment": 25 }
+        }
+      ]
+    },
+    {
+      "id": "revenue",
+      "stored_enum": "revenue",
+      "public_name": "Revenue",
+      "base_max": 176,
+      "parameters": [
+        {
+          "id": "revenue.signups",
+          "public_name": "Signups",
+          "weight": 20,
+          "base_max": 80,
+          "levels": ["0", "1 to 50", "51 to 250", "251 to 750", "751+"],
+          "overflow": { "starts_after": 750, "unit": "signups", "increment": 100, "points_per_increment": 20 }
+        },
+        {
+          "id": "revenue.live_product_quality",
+          "public_name": "Live product quality",
+          "weight": 8,
+          "base_max": 32,
+          "levels": [
+            "Broken",
+            "Rough MVP, happy path only",
+            "Working product, does what it claims",
+            "Polished, noticeably better than alternatives",
+            "10x product, magical onboarding, a user cannot tell it was built in 4 days"
+          ],
+          "overflow": null
+        },
+        {
+          "id": "revenue.revenue_generated",
+          "public_name": "Revenue generated (USD)",
+          "weight": 4,
+          "base_max": 16,
+          "levels": ["$0", "Up to $100", "$100 to $500", "$500 to $2,000", "$2,000+"],
+          "overflow": { "starts_after": 2000, "unit": "usd_revenue", "increment": 500, "points_per_increment": 15 }
+        },
+        {
+          "id": "revenue.waitlist",
+          "public_name": "Waitlist",
+          "weight": 4,
+          "base_max": 16,
+          "levels": ["0", "1 to 150", "151 to 750", "751 to 3,000", "3,000+"],
+          "overflow": { "starts_after": 3000, "unit": "waitlist_entries", "increment": 500, "points_per_increment": 4 }
+        },
+        {
+          "id": "revenue.pain_severity",
+          "public_name": "Pain point severity",
+          "weight": 2,
+          "base_max": 8,
+          "levels": [
+            "Cannot name a specific user or specific pain",
+            "Vague persona, people who want X",
+            "Named user, 1-2 conversations during the day",
+            "Named user, 3+ conversations confirming pain, quotes in submission",
+            "Named user, 5+ conversations, 1+ can I pay for this now moment"
+          ],
+          "overflow": null
+        },
+        {
+          "id": "revenue.som",
+          "public_name": "SOM (bottoms-up math)",
+          "weight": 2,
+          "base_max": 8,
+          "levels": [
+            "No math attempted",
+            "Math attempted but wrong unit or wrong multiplication",
+            "Users x ACV correct, under INR 10 cr",
+            "Users x ACV correct, INR 10 cr to INR 1,000 cr",
+            "Users x ACV correct, over INR 1,000 cr with defensible beachhead segment named"
+          ],
+          "overflow": null
+        },
+        {
+          "id": "revenue.right_to_win",
+          "public_name": "Right to win",
+          "weight": 2,
+          "base_max": 8,
+          "levels": [
+            "Builder could be anyone",
+            "Generic interest in the space",
+            "Some domain exposure",
+            "Direct operator or domain experience, clear insight",
+            "Deep founder-market fit, unfair advantage visible in the build itself"
+          ],
+          "overflow": null
+        },
+        {
+          "id": "revenue.why_now",
+          "public_name": "Why now",
+          "weight": 1,
+          "base_max": 4,
+          "levels": [
+            "Could have been built 5 years ago",
+            "Riding general trends",
+            "Clear tailwind in last 2 years",
+            "Specific unlock in last 12 months",
+            "Window opened under 6 months ago, visible in the product"
+          ],
+          "overflow": null
+        },
+        {
+          "id": "revenue.moat",
+          "public_name": "Moat and defensibility",
+          "weight": 1,
+          "base_max": 4,
+          "levels": [
+            "Copyable in a weekend",
+            "Thin, first-mover only",
+            "Workflow lock-in, integrations, taste",
+            "Data flywheel, network effects, switching costs",
+            "Compounding moat: proprietary data + network effects strengthen with scale"
+          ],
+          "overflow": null
+        }
+      ]
+    },
+    {
+      "id": "agent_as_a_service",
+      "stored_enum": "maas",
+      "public_name": "AI Agent as a Service",
+      "base_max": 164,
+      "parameters": [
+        {
+          "id": "maas.real_output",
+          "public_name": "Working product shipping real output",
+          "weight": 20,
+          "base_max": 80,
+          "levels": [
+            "Demo only, canned responses",
+            "Agents run but output is broken or hallucinated",
+            "Working output on a staged or test surface only",
+            "Real output on real surfaces but the builder has to babysit (human approves every step)",
+            "Autonomously completes a real task in declared domain end-to-end, output lands on real live surfaces, production quality"
+          ],
+          "overflow": { "starts_after": "L5", "unit": "additional_autonomous_real_tasks", "increment": 1, "points_per_increment": 20 },
+          "evidence_rule": { "condition": "staged_or_test_surface", "cap_level": 3 }
+        },
+        {
+          "id": "maas.org_structure",
+          "public_name": "Agent org structure",
+          "weight": 5,
+          "base_max": 20,
+          "levels": [
+            "One monolithic agent does everything",
+            "2-3 agents with hardcoded handoffs, no manager",
+            "Clear roles (manager + specialists), static routing",
+            "Dynamic: manager plans request-specific subtasks, delegates, reviews outputs",
+            "Emergent org: manager spawns sub-specialists, agents escalate, roles self-adjust"
+          ],
+          "overflow": null
+        },
+        {
+          "id": "maas.observability",
+          "public_name": "Observability",
+          "weight": 7,
+          "base_max": 28,
+          "levels": [
+            "console.log or print statements only",
+            "Structured logs written to a file, no UI",
+            "Can inspect a specific run step by step",
+            "Trace tree across agents, token and cost per step, filters",
+            "Run diffs, alerts, search, production-grade debugging"
+          ],
+          "overflow": null
+        },
+        {
+          "id": "maas.evals",
+          "public_name": "Evaluation and iteration",
+          "weight": 5,
+          "base_max": 20,
+          "levels": [
+            "No evals",
+            "Manual spot-checks",
+            "Named eval set, run manually",
+            "Automated eval pipeline blocks regressions",
+            "Failed runs grow a version-controlled eval set with measurable gains"
+          ],
+          "overflow": null
+        },
+        {
+          "id": "maas.handoffs_memory",
+          "public_name": "Agent handoffs and memory",
+          "weight": 2,
+          "base_max": 8,
+          "levels": [
+            "Stateless, each agent starts from zero",
+            "Handoffs exist but context is lossy",
+            "Short-term memory within a single task",
+            "Persistent memory across tasks",
+            "Hierarchical working, episodic, and semantic memory"
+          ],
+          "overflow": null
+        },
+        {
+          "id": "maas.cost_latency",
+          "public_name": "Cost and latency per task",
+          "weight": 1,
+          "base_max": 4,
+          "levels": [
+            "Over 30 min OR over $5",
+            "10 to 30 min OR $2-$5",
+            "5 to 10 min OR $0.50-$2",
+            "1 to 5 min OR $0.10-$0.50",
+            "Under 1 min AND under $0.10"
+          ],
+          "overflow": null
+        },
+        {
+          "id": "maas.management_ui",
+          "public_name": "Management UI",
+          "weight": 1,
+          "base_max": 4,
+          "levels": [
+            "CLI or code only",
+            "Basic web UI, dev-only",
+            "Functional UI, a PM could operate with docs",
+            "Clean UI, non-engineer operates with one walkthrough",
+            "Non-engineer onboards a new agent role in under 10 min unassisted"
+          ],
+          "overflow": null
+        }
+      ]
+    }
+  ],
+  "evidence_rules": {
+    "default_l4_l5_requirement": "verifiable_evidence",
+    "default_missing_evidence_cap_level": 3,
+    "parameter_overrides": [
+      { "parameter_id": "virality.visitors", "missing_evidence_cap_level": 2 },
+      { "parameter_id": "maas.real_output", "condition": "staged_or_test_surface", "cap_level": 3 }
+    ]
+  },
+  "anti_spoof": [
+    {
+      "id": "virality.impressions_to_visitors",
+      "rule": "visitors <= weighted_impressions / 10",
+      "max_ratio": 0.1,
+      "penalty_parameter_id": "virality.visitors",
+      "penalty_level": 1,
+      "exception": "verifiable_non_social_traffic_source"
+    },
+    {
+      "id": "virality.visitors_to_signups",
+      "rule": "signups <= visitors / 2",
+      "max_ratio": 0.5,
+      "penalty_parameter_id": "virality.signups",
+      "penalty_level": 1,
+      "exception": "verifiable_direct_share_source"
+    }
+  ],
+  "manual_review": { "when": "both_anti_spoof_rules_trigger" },
+  "bonus": {
+    "weight_multiplier": 0.5,
+    "total_cap": 50,
+    "scope": "per_builder",
+    "requires_same_evidence_as_primary": true,
+    "eligible": [
+      { "parameter_id": "virality.signups", "original_weight": 25, "bonus_weight": 12.5, "max_bonus": 50 },
+      { "parameter_id": "virality.visitors", "original_weight": 10, "bonus_weight": 5, "max_bonus": 20 },
+      { "parameter_id": "virality.reactions", "original_weight": 2, "bonus_weight": 1, "max_bonus": 4 },
+      { "parameter_id": "revenue.signups", "original_weight": 20, "bonus_weight": 10, "max_bonus": 40 },
+      { "parameter_id": "revenue.live_product_quality", "original_weight": 8, "bonus_weight": 4, "max_bonus": 16 },
+      { "parameter_id": "revenue.revenue_generated", "original_weight": 4, "bonus_weight": 2, "max_bonus": 8 },
+      { "parameter_id": "maas.real_output", "original_weight": 20, "bonus_weight": 10, "max_bonus": 40 },
+      { "parameter_id": "maas.observability", "original_weight": 7, "bonus_weight": 3.5, "max_bonus": 14 }
+    ]
+  }
+}

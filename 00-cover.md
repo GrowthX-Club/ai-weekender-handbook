@@ -1,4 +1,4 @@
-# AI Weekender
+# AI Immersion
 
 Four days. High intensity. GrowthX Style.
 

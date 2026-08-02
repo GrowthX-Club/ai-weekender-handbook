@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ────────────────────────────────────────────────────────────────
-#  AI Weekender — handbook installer / updater
+#  AI Immersion — handbook installer / updater
 #  Run once to install, re-run any time to update.
 #
 #  Usage (from inside your project folder):
@@ -25,7 +25,7 @@ DIM="\033[2m"
 RESET="\033[0m"
 
 echo ""
-echo -e "${BLUE}AI Weekender${RESET} — GrowthX handbook"
+echo -e "${BLUE}AI Immersion${RESET} — GrowthX handbook"
 echo ""
 echo -e "  ${DIM}installing to:${RESET} ${YELLOW}${PWD}${RESET}"
 echo ""
@@ -37,7 +37,7 @@ if [ ! -d .git ] && [ ! -f package.json ] && [ ! -f pyproject.toml ] && [ ! -f C
   echo -e "   this folder doesn't look like a code project."
   echo -e "   no .git, package.json, pyproject.toml, or project folder."
   echo ""
-  echo -e "   if this isn't your weekender project, ${RED}press Ctrl+C now${RESET}"
+  echo -e "   if this isn't your AI Immersion project, ${RED}press Ctrl+C now${RESET}"
   echo -e "   and cd into the right folder before running again."
   echo ""
   echo -e "   ${DIM}continuing in 5 seconds...${RESET}"
@@ -53,7 +53,7 @@ if [ -d "handbook" ]; then
     CURRENT_VERSION="$(cat handbook/$MARKER_FILE 2>/dev/null | tr -d '[:space:]' || echo 'unknown')"
     echo -e "${DIM}→ existing install detected (version: ${CURRENT_VERSION}) — updating${RESET}"
   else
-    echo -e "${RED}✗${RESET} ./handbook/ exists but isn't a Weekender handbook install."
+    echo -e "${RED}✗${RESET} ./handbook/ exists but isn't an AI Immersion handbook install."
     echo -e "  I won't touch it. If you want to replace it, remove it first:"
     echo -e "  ${DIM}rm -rf ./handbook${RESET}"
     exit 1
@@ -141,16 +141,16 @@ fi
 
 # ── 4. Append a pointer to CLAUDE.md (only on fresh install) ───
 CLAUDE_MD="./CLAUDE.md"
-MARKER_BLOCK="# AI Weekender context"
+MARKER_BLOCK="# AI Immersion context"
 
 if [ -f "$CLAUDE_MD" ] && grep -Fq "$MARKER_BLOCK" "$CLAUDE_MD"; then
   echo -e "${DIM}→ CLAUDE.md already points to the handbook, skipping${RESET}"
 else
   cat >> "$CLAUDE_MD" <<'EOF'
 
-# AI Weekender context
+# AI Immersion context
 
-This project is part of the GrowthX AI Weekender sprint.
+This project is part of the GrowthX AI Immersion sprint.
 
 The full handbook lives at `./handbook/` — read files from there when the user asks about:
 - ideas, tracks, difficulty (see `./handbook/06-pick-an-idea.md`)
@@ -174,14 +174,14 @@ fi
 # ── 4.5. Append the coaching-mode block (independent marker, idempotent) ─
 # Separate top-level section so v1.1.0 upgraders pick this up even though
 # their CLAUDE.md already has the handbook-pointer block from section 4.
-COACHING_MARKER="# AI Weekender coaching mode"
+COACHING_MARKER="# AI Immersion coaching mode"
 
 if [ -f "$CLAUDE_MD" ] && grep -Fq "$COACHING_MARKER" "$CLAUDE_MD"; then
   echo -e "${DIM}→ CLAUDE.md already has coaching mode, skipping${RESET}"
 else
   cat >> "$CLAUDE_MD" <<'EOF'
 
-# AI Weekender coaching mode
+# AI Immersion coaching mode
 
 `./weekender.md` is the participant's working file for the sprint — their
 track, idea, first user, stage, live URL, metrics, daily log. Read it at the

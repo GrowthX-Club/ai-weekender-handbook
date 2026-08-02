@@ -34,7 +34,7 @@ Frontend. Backend. Database. Deployed. You have a repo, it runs, someone can ope
 
 ### L1 to L4. Four days.
 
-Doesn't matter where you start. The weekender is built so every single one of you walks away from consuming AI tools to shipping an entirely full product by Sunday night.
+Doesn't matter where you start. The immersion is built so every single one of you walks away from consuming AI tools to shipping an entirely full product by Sunday night.
 
 And the first time you see a green square land on your GitHub profile — that's the flex you'll show your friends. First red-green commit graph of your life. Don't underestimate that moment.
 

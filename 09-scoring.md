@@ -2,9 +2,11 @@
 
 How your submission is scored. Every track has its own rubric with weighted parameters. Read the section for your track. Skim the rest.
 
+**Canonical rubric version: 2.2.0.** The machine-readable contract lives at `rubric/2.2.0/rubric.json`. Public copy uses **AI Agent as a Service**; the backend/frontend stored enum remains `maas` for compatibility.
+
 ## Rubric 101 — L1 to L5
 
-Each parameter is scored **L1 to L5**. A lens, not a spreadsheet you fill at the end. Apply the rubric to your own build as you go — that's how you know if you're tracking toward the top two.
+Each parameter is scored **L1 to L5**. A lens, not a spreadsheet you fill at the end. Apply the rubric to your own build as you go — that's how you know where your strongest proof is and what to improve next.
 
 | Level | Name | Meaning |
 |-------|------|---------|
@@ -14,7 +16,7 @@ Each parameter is scored **L1 to L5**. A lens, not a spreadsheet you fill at the
 | **L4** | Strong | Real quality. Stands out in the zone. |
 | **L5** | Exceptional | Reachable if you ship well. Overflow stacks on top. |
 
-> **How to read a rubric row.** Every track has its own parameters. Each parameter has its own weight. Points for that parameter = `(L − 1) × weight`. L5 on a 20x-weight parameter is 80 points. L3 on the same parameter is 40. Virality and MaaS totals cap at **164 base points**. Revenue caps at **176** because it is the hardest track. Overflow on top, uncapped.
+> **How to read a rubric row.** Every track has its own parameters. Each parameter has its own weight. Points for that parameter = `(L − 1) × weight`. L5 on a 20x-weight parameter is 80 points. L3 on the same parameter is 40. Virality and AI Agent as a Service totals cap at **164 base points**. Revenue caps at **176** because it is the hardest track. Overflow on top, uncapped.
 
 ---
 
@@ -28,7 +30,7 @@ Narrative matters, platform does not. X, LinkedIn, YouTube, Instagram — all co
 | **Reactions and comments** — organic + (ad-driven × 0.25), aggregated across platforms across the 4 days | 2x | 8 | Under 15 | 15 to 50 | 51 to 150 | 151 to 300 | 301 to 600 | Beyond 600: +1 pt × 2x per additional 50 reactions |
 | **Amplification quality** — not volume, whose accounts reshared. Notable = 10k+ followers with domain authority | 3x | 12 | None | 1-2 peer builders commenting or liking | 3+ peer builders engaging, or 1 sub-10k-follower founder/operator engaging | 1 notable (10k+) founder or operator reshare | Multiple notables engaging, PH feature, press, or known investor amplification | — |
 | **Visitors to product** — unique visitors from PostHog, Plausible, GA4, or Datafast across the 4 days. Read-only access required or capped at L2 | 10x | 40 | Under 50 | 51 to 250 | 251 to 1,000 | 1,001 to 3,000 | 3,000+ | Beyond 3k: +1 pt × 10x per additional 300 visitors |
-| **Signups or meaningful actions** — signup, install, account creation, first-use event. Team members do not count. Anonymous visits do not count. The heaviest virality parameter | 25x | 100 | Up to 25 | 26 to 100 | 101 to 500 | 501 to 1,500 | 1,501 to 5,000 | Beyond 5k: +1 pt × 25x per additional 200 signups |
+| **Signups or meaningful actions** — signup, install, account creation, first-use event. Your own test accounts do not count. Anonymous visits do not count. The heaviest virality parameter | 25x | 100 | Up to 25 | 26 to 100 | 101 to 500 | 501 to 1,500 | 1,501 to 5,000 | Beyond 5k: +1 pt × 25x per additional 200 signups |
 
 **Virality total base**: 4 + 8 + 12 + 40 + 100 = **164 points**. Overflow uncapped.
 
@@ -46,7 +48,7 @@ Narrative matters, platform does not. X, LinkedIn, YouTube, Instagram — all co
 >
 > **The practical test:** what does a user screenshot from your product? If the answer is "the landing page" or "the feature list" — no viral loop. If the answer is "their personalized dashboard, result, stat card, label, or ranking" — viral loop present.
 
-> **Why overflow exists.** Each track has uncapped overflow on its strongest signals: Virality (four parameters), Revenue (signups, revenue generated, waitlist), MaaS (real output). L5 should feel reachable in a 4-day sprint if you ship well. Going past L5 should compound. Teams that truly break out earn disproportionate upside.
+> **Why overflow exists.** Exactly eight parameters have uncapped overflow: Virality impressions, reactions, visitors, and signups; Revenue signups, revenue generated, and waitlist; AI Agent as a Service real output. L5 should feel reachable in a 4-day sprint if you ship well. Going past L5 should compound. Builders who truly break out earn disproportionate upside.
 
 ---
 
@@ -56,29 +58,29 @@ Revenue is the hardest track. Real demand in a 4-day window is still rare, so th
 
 | Parameter | Weight | Max | L1 | L2 | L3 | L4 | L5 | Overflow |
 |-----------|--------|-----|----|----|----|----|----|----------|
-| **Signups** — root parameter. Email + first-use event (created an account, generated an output, ran the core flow) across the 4 days. Team members do not count. Anonymous visits do not count | 20x | 80 | 0 | 1 to 50 | 51 to 250 | 251 to 750 | 751+ | Beyond 750: +1 pt × 20x per additional 100 signups |
+| **Signups** — root parameter. Email + first-use event (created an account, generated an output, ran the core flow) across the 4 days. Your own test accounts do not count. Anonymous visits do not count | 20x | 80 | 0 | 1 to 50 | 51 to 250 | 251 to 750 | 751+ | Beyond 750: +1 pt × 20x per additional 100 signups |
 | **Live product quality** — time to first value, task completion rate, UX craft, perceived differentiation | 8x | 32 | Broken | Rough MVP, happy path only | Working product, does what it claims | Polished, noticeably better than alternatives | 10x product, magical onboarding, a user cannot tell it was built in 4 days | — |
-| **Revenue generated (USD)** — real money moved during the 4-day sprint. Stripe, Razorpay, any payment processor. Not services. See "What counts as revenue" below | 15x | 16 | $0 | Up to $100 | $100 to $500 | $500 to $2,000 | $2,000+ | Beyond $2,000: +1 pt × 15x per additional $500 |
+| **Revenue generated (USD)** — real money moved during the 4-day sprint. Stripe, Razorpay, any payment processor. Not services. See "What counts as revenue" below | 4x | 16 | $0 | Up to $100 | $100 to $500 | $500 to $2,000 | $2,000+ | Beyond $2,000: +1 pt × 15x per additional $500 |
 | **Waitlist** — email drop on a landing page. User has not touched the product. Lower weight than signups because intent without commitment | 4x | 16 | 0 | 1 to 150 | 151 to 750 | 751 to 3,000 | 3,000+ | Beyond 3k: +1 pt × 4x per additional 500 entries |
 | **Pain point severity** — who has this pain, how often, what they do today, will they pay? | 2x | 8 | Cannot name a specific user or specific pain | Vague persona, "people who want X" | Named user, 1-2 conversations during the day | Named user, 3+ conversations confirming pain, quotes in submission | Named user, 5+ conversations, 1+ "can I pay for this now" moment | — |
 | **SOM (bottoms-up math)** — serviceable obtainable market = target users × realistic ACV. Show the math, not the vibe | 2x | 8 | No math attempted | Math attempted but wrong unit or wrong multiplication | Users × ACV correct, under ₹10 cr | Users × ACV correct, ₹10 cr to ₹1,000 cr | Users × ACV correct, over ₹1,000 cr with defensible beachhead segment named | — |
-| **Right to win** — founder-market fit + insight. Unfair advantage = 10x better shot than a random team | 2x | 8 | Team could be anyone | Generic interest in the space | Some domain exposure | Direct operator or domain experience, clear insight | Deep founder-market fit, unfair advantage visible in the build itself | — |
+| **Right to win** — founder-market fit + insight. Unfair advantage = 10x better shot than a random builder | 2x | 8 | Builder could be anyone | Generic interest in the space | Some domain exposure | Direct operator or domain experience, clear insight | Deep founder-market fit, unfair advantage visible in the build itself | — |
 | **Why now** — weak: "AI is hot." Strong: specific unlock (capability, regulation, behavior shift) in recent past | 1x | 4 | Could have been built 5 years ago | Riding general trends | Clear tailwind in last 2 years | Specific unlock in last 12 months | Window opened under 6 months ago, visible in the product | — |
 | **Moat and defensibility** — taste counts as moat when it shows up in product craft (Linear, Superhuman) | 1x | 4 | Copyable in a weekend | Thin, first-mover only | Workflow lock-in, integrations, taste | Data flywheel, network effects, switching costs | Compounding moat: proprietary data + network effects strengthen with scale | — |
 
 **Revenue total base**: 80 + 32 + 16 + 16 + 8 + 8 + 8 + 4 + 4 = **176 points**. Signups, revenue generated, and waitlist overflow on top, uncapped.
 
-> ⚠ **What counts as revenue.** Revenue means money earned from selling a product. Not money earned from selling your team's time.
+> ⚠ **What counts as revenue.** Revenue means money earned from selling a product. Not money earned from selling your own time.
 >
-> **Qualifies:** Paid product signups (Stripe, Razorpay, one-time or subscription). API or usage fees processed during the sprint. Paid templates, prompts, or digital goods downloaded from the product. Premium tier upgrades on a product built during the weekender.
+> **Qualifies:** Paid product signups (Stripe, Razorpay, one-time or subscription). API or usage fees processed during the sprint. Paid templates, prompts, or digital goods downloaded from the product. Premium tier upgrades on a product built during the immersion.
 >
-> **Does not qualify:** Consulting, agency, or "done-for-you" service fees — you are selling hours, not a product. Human-in-the-loop work the team performs manually (tech support, VA tasks, content writing by hand, research reports typed up). If the team is the delivery mechanism, it is a service. Payments from team members, event attendees asked to "test the flow," or friends of the team. Gifts, tips, or donations reframed as revenue.
+> **Does not qualify:** Consulting, agency, or "done-for-you" service fees — you are selling hours, not a product. Human-in-the-loop work you perform manually (tech support, VA tasks, content writing by hand, research reports typed up). If you are the delivery mechanism, it is a service. Payments from yourself, event attendees asked to "test the flow," or friends. Gifts, tips, or donations reframed as revenue.
 >
-> **The test:** if you removed the product tomorrow, does the revenue also disappear? If yes, it counts. If no (the team would still get paid for services rendered), it does not.
+> **The test:** if you removed the product tomorrow, does the revenue also disappear? If yes, it counts. If no (you would still get paid for services rendered), it does not.
 
 > **Revenue is uncapped past L5.** Past $2,000, every additional $500 earns 15 more points. No ceiling.
 >
-> A breakout revenue team in a 4-day sprint is rare enough to deserve uncapped upside. $2,000 is L5. $5,000 adds 90 points on top. $10,000 adds 240. A team that drives $20,000 of real product revenue across the sprint earns 540 overflow points on this parameter alone.
+> A breakout revenue result in a 4-day sprint is rare enough to deserve uncapped upside. $2,000 is L5. $5,000 adds 90 points on top. $10,000 adds 240. A builder who drives $20,000 of real product revenue across the sprint earns 540 overflow points on this parameter alone.
 
 > **Don't wing SOM. Use the calculator.** SOM = target users × realistic ACV. Simple in theory, easy to get wrong. Wrong base ("all Indians" instead of "Indian designers on Behance"), wrong unit (monthly × 12 when you meant annual), wrong ACV. Any of these and your SOM lands at L1 or L2, regardless of how good your product is.
 >
@@ -90,15 +92,15 @@ Revenue is the hardest track. Real demand in a 4-day window is still rare, so th
 
 - **Signups L5 + overflow.** 1,050 signups across 4 days. 680 came via a cofounder's twitter thread (18k followers). Landing page → signup → first invoice generated. Base L5 = 80 pts. Overflow = (1,050 − 750) / 100 = 3 additional points × 20x = 60 pts. **Total: 80 + 60 = 140 pts**
 - **Live product L5.** User lands, signs up with email only, sees first AI-generated invoice in 25 seconds. Clean Tailwind UI, no bugs. Visibly better than the 3 Indian invoice tools a quick search surfaces. **(5-1) × 8 = 32 pts**
-- **Revenue generated L2.** Team ships a ₹49/month invoice tool. By Saturday 8pm: 18 paying customers outside the team on the monthly plan (₹882) + 6 lifetime-deal takers at ₹499 (₹2,994). Total ≈ $46. That's L2 ($100 threshold not hit). **(2-1) × 15 = 15 pts**
+- **Revenue generated L2.** A builder ships a ₹49/month invoice tool. By Sunday 8pm: 18 paying customers on the monthly plan (₹882) + 6 lifetime-deal takers at ₹499 (₹2,994). Total ≈ $46. That's L2 ($100 threshold not hit). The base weight is 4x; 15x applies only to overflow beyond $2,000. **(2-1) × 4 = 4 pts**
 - **SOM L4.** "80,000 freelance designers on Behance India + Upwork India × ₹2,400 avg annual = ₹19.2 cr SOM." Math is correct, segment is real, lands between ₹10 cr and ₹1,000 cr. **(4-1) × 2 = 6 pts**
-- **Pain severity L4.** Team built a meeting-notes agent for Indian sales teams. 4 event attendees interviewed during lunch, all confirmed they rewrite Zoom transcripts manually every week. 2 said they'd install it Monday. Quotes in submission. **(4-1) × 2 = 6 pts**
+- **Pain severity L4.** A builder made a meeting-notes agent for Indian sales teams. Four event attendees interviewed during lunch all confirmed they rewrite Zoom transcripts manually every week. Two said they'd install it Monday. Quotes are included in the submission. **(4-1) × 2 = 6 pts**
 
 ---
 
-# 🤖 MaaS rubric — 164 base + overflow
+# 🤖 AI Agent as a Service rubric — 164 base + overflow
 
-MaaS = agents as employees. A team of AI agents replaces a full human function: marketing, hiring, sales, legal, support, design, engineering. Builders ship a department, not a bot. A manager agent plans, specialists execute, handoffs pass work between them, memory persists across tasks, and a control surface lets a non-engineer assign work.
+AI Agent as a Service = agents as employees. A system of AI agents replaces a full human function: marketing, hiring, sales, legal, support, design, engineering. You ship a department, not a bot. A manager agent plans, specialists execute, handoffs pass work between them, memory persists across tasks, and a control surface lets a non-engineer assign work.
 
 **Framework: if an agency was run with agents instead of humans, how would it work?**
 
@@ -106,7 +108,7 @@ Scoring covers two things. The product produces real output (blogs published, JD
 
 | Parameter | Weight | Max | L1 | L2 | L3 | L4 | L5 |
 |-----------|--------|-----|----|----|----|----|----|
-| **Working product shipping real output** — root parameter. Real surface = a system a paying customer could use tomorrow. Staged WordPress or sandbox Gmail = L3 max. Overflow past L5: +1 pt × 20x per additional real task completed autonomously during judging | 20x | 80 | Demo only, canned responses | Agents run but output is broken or hallucinated | Working output on a staged or test surface only | Real output on real surfaces but team has to babysit (human approves every step) | Autonomously completes a real task in declared domain end-to-end, output lands on real live surfaces (live site, real ATS, real support queue, real repo), production quality |
+| **Working product shipping real output** — root parameter. Real surface = a system a paying customer could use tomorrow. Staged WordPress or sandbox Gmail = L3 max. Overflow past L5: +1 pt × 20x per additional real task completed autonomously during judging | 20x | 80 | Demo only, canned responses | Agents run but output is broken or hallucinated | Working output on a staged or test surface only | Real output on real surfaces but the builder has to babysit (human approves every step) | Autonomously completes a real task in declared domain end-to-end, output lands on real live surfaces (live site, real ATS, real support queue, real repo), production quality |
 | **Agent org structure** — how the agent team is organized. Flat vs managed, static vs dynamic delegation | 5x | 20 | One monolithic agent does everything | 2-3 agents with hardcoded handoffs, no manager | Clear roles (manager + specialists), static routing | Dynamic: manager agent plans subtasks based on the specific request, delegates, reviews outputs | Emergent org: manager spawns sub-specialists on the fly, agents escalate when stuck, roles self-adjust to task |
 | **Observability** — tool-agnostic. What we can see about the system matters, not the logo. See callout below | 7x | 28 | console.log or print statements only | Structured logs written to a file, no UI | Can pull up a specific run and see what each agent did, step by step (any tool: custom, self-hosted OSS, SaaS, OTel) | Trace tree across agents (who called whom), token and cost per step, filter by agent or task | Production-grade: diff two runs side by side, alerts on failure or cost spike, search across runs, senior eng would trust this to debug prod |
 | **Evaluation and iteration** — ability to improve the system over time. Manual vs closed-loop | 5x | 20 | No evals | Manual spot-checks ("this run looked fine") | Named eval set exists, run manually to compare versions | Automated eval pipeline, CI-style, fails a release if quality drops | Closed-loop: failed runs feed a growing eval set, version-controlled prompts and agents, measurable gains across versions |
@@ -114,19 +116,43 @@ Scoring covers two things. The product produces real output (blogs published, JD
 | **Cost and latency per task** — lower tier (slower or more expensive) governs | 1x | 4 | Over 30 min OR over $5 | 10 to 30 min OR $2-$5 | 5 to 10 min OR $0.50-$2 | 1 to 5 min OR $0.10-$0.50 | Under 1 min AND under $0.10 |
 | **Management UI** — L5 tested live: non-eng volunteer onboards a new role unassisted | 1x | 4 | CLI or code only | Basic web UI, dev-only | Functional UI, a PM could operate with docs | Clean UI, non-eng operates with one walkthrough | Delightful UI, non-eng volunteer onboards a new agent role (defines job, tools, guardrails) in under 10 min unassisted |
 
-**MaaS total base**: 80 + 20 + 28 + 20 + 8 + 4 + 4 = **164 points**. Real output overflow on top, uncapped.
+**AI Agent as a Service total base**: 80 + 20 + 28 + 20 + 8 + 4 + 4 = **164 points**. Real output overflow on top, uncapped.
 
 > ⚠ **Observability is tool-agnostic.** Langfuse, Braintrust, Arize Phoenix, OpenTelemetry, Helicone, a self-hosted stack, a homebrewed dashboard reading from Postgres, a 200-line custom React app over a SQLite log — all score the same at every L-tier. The question is not "what tool" but "what can we see about the system, and what can the team do with what they see?"
 >
 > A team that built observability themselves in 90 minutes and hit L4 is scored exactly the same as a team that wired Langfuse and hit L4. The rubric is capability-based.
 
-### Worked examples (MaaS)
+### Worked examples (AI Agent as a Service)
 
 - **Real output L5, legal domain.** Contract review agent org. Manager agent classifies contract type (MSA, NDA, SOW). Specialists redline specific clauses (IP, indemnity, termination, liability). Senior partner agent assembles the redlined PDF and uploads to the team's real Notion workspace. Someone drops a fresh MSA into the intake endpoint; 40 minutes later the redlined doc appears in Notion with agent-authored comments. **(5-1) × 20 = 80 pts**
 - **Agent org structure L4, hiring domain.** React hiring agent org. Manager agent reads the JD and plans a sourcing pipeline. Sourcer pulls candidates from GitHub + LinkedIn. Screener writes personalized outreach. Scheduler proposes calendar slots. When the first sourcer's yield drops below threshold, manager dynamically spawns a second sourcer with a different search strategy. **(4-1) × 5 = 15 pts**
-- **Observability L5, custom build.** Team built their own observability in 3 hours. Every agent step writes to a Postgres table. A simple React UI queries it. Trace trees render, per-step token + cost columns, side-by-side run diffs (pick two run IDs, see diff), alerts to the team Slack channel on failure or cost spike. No vendor tools. A reviewer can debug a failed run in under 2 minutes. **(5-1) × 7 = 28 pts**
+- **Observability L5, custom build.** A builder made their own observability in 3 hours. Every agent step writes to a Postgres table. A simple React UI queries it. Trace trees render, per-step token + cost columns, side-by-side run diffs (pick two run IDs, see diff), and alerts fire on failure or cost spikes. No vendor tools. A reviewer can debug a failed run in under 2 minutes. **(5-1) × 7 = 28 pts**
 - **Evaluation and iteration L4, support domain.** Customer support agent org with an automated eval pipeline. Team curated 20 real past tickets, each labeled with correct resolution. Every prompt change triggers a GitHub Action running the eval set; quality regression blocks merge. Current prod is tagged v0.7.2 in the repo. **(4-1) × 5 = 15 pts**
 - **Management UI L5, design domain.** Non-eng volunteer from the audience asked to "hire" a new design agent for Instagram creatives. Opens the management UI, clicks "new role," pastes a description, uploads 3 example creatives as reference, defines output channel (Figma file or Drive folder). Agent is live and accepting briefs in 7 minutes. Zero help from the team. **(5-1) × 1 = 4 pts**
+
+---
+
+# Exact overflow and evidence rules
+
+Exactly eight parameters overflow. Base points stop at L5; overflow points stack on top and are uncapped.
+
+| Track | Parameter | Starts after | Increment | Points per increment |
+|-------|-----------|--------------|-----------|----------------------|
+| Virality | Impressions and views | 50,000 weighted impressions | 5,000 | 1 |
+| Virality | Reactions and comments | 600 weighted reactions | 50 | 2 |
+| Virality | Visitors to product | 3,000 unique visitors | 300 | 10 |
+| Virality | Signups or meaningful actions | 5,000 signups | 200 | 25 |
+| Revenue | Signups | 750 signups | 100 | 20 |
+| Revenue | Revenue generated | $2,000 | $500 | 15 |
+| Revenue | Waitlist | 3,000 entries | 500 | 4 |
+| AI Agent as a Service | Working product shipping real output | L5 real output | 1 additional autonomous real task | 20 |
+
+Evidence rules are deterministic:
+
+1. L4 or L5 requires verifiable evidence. An evidence gap caps that parameter at L3.
+2. Virality visitors without read-only analytics access are capped at L2, which is stricter than the general L3 evidence cap.
+3. AI Agent as a Service output on a staged or test surface is capped at L3.
+4. Bonus parameters use the same evidence requirement as primary parameters. No evidence means no bonus.
 
 ---
 
@@ -135,7 +161,7 @@ Scoring covers two things. The product produces real output (blogs published, JD
 You pick one primary track. But if you also rack up wins in someone else's track, you get bonus points on top.
 
 1. **Bonus weight = 0.5x the original parameter weight.**
-2. **50-point cap per team**, no matter how many bonus parameters you hit.
+2. **50-point cap per builder**, no matter how many bonus parameters you hit.
 3. **Evidence requirement is the same as the primary track.** No evidence, no bonus.
 
 ## Bonus-eligible parameters
@@ -148,12 +174,12 @@ You pick one primary track. But if you also rack up wins in someone else's track
 | Revenue | Signups | 20x | 10x | 40 |
 | Revenue | Live product quality | 8x | 4x | 16 |
 | Revenue | Revenue generated | 4x | 2x | 8 |
-| MaaS | Real output shipping | 20x | 10x | 40 |
-| MaaS | Observability | 7x | 3.5x | 14 |
+| AI Agent as a Service | Real output shipping | 20x | 10x | 40 |
+| AI Agent as a Service | Observability | 7x | 3.5x | 14 |
 
 ### Worked example: triple threat
 
-**Primary: Revenue.** Team lands L5 signups, L4 on live product, waitlist, and pain, L3 on SOM and right-to-win, L2 on revenue generated, why now, and moat. Base score = 138. Bonus claims: MaaS real output (L4) = 3 × 10 = 30. Observability (L3) = 2 × 3.5 = 7. Virality signups (L2) = 1 × 12.5 = 12.5. Total bonus = 49.5, rounds up to the 50 cap. **138 + 50 = 188 / 226 + overflow**
+**Primary: Revenue.** A builder lands L5 signups, L4 on live product, waitlist, and pain, L3 on SOM and right-to-win, L2 on revenue generated, why now, and moat. Base score = 138. Bonus claims: AI Agent as a Service real output (L4) = 3 × 10 = 30. Observability (L3) = 2 × 3.5 = 7. Virality signups (L2) = 1 × 12.5 = 12.5. Total bonus = 49.5, rounds up to the 50 cap. **138 + 50 = 188 / 226 + overflow**
 
 ---
 
@@ -163,25 +189,15 @@ Visitors and signups can be spoofed. Two ratio checks catch it.
 
 | Check | Max plausible ratio | Penalty if breached |
 |-------|--------------------|--------------------|
-| **Impressions → visitors** | 1 visitor per 10 weighted impressions (10% CTR max) | Visitors parameter drops to L1 (0 pts) unless team proves verifiable non-social traffic source (newsletter, PH feature, direct shares) |
-| **Visitors → signups** | 1 signup per 2 visitors (50% conversion max) | Signups parameter drops to L1 (0 pts) unless team proves verifiable direct-share source (WhatsApp waitlist bypassing the site) |
+| **Impressions → visitors** | 1 visitor per 10 weighted impressions (10% CTR max) | If visitors exceed weighted impressions ÷ 10, visitors drop to L1 (0 pts) unless the builder proves a verifiable non-social traffic source (newsletter, PH feature, direct shares) |
+| **Visitors → signups** | 1 signup per 2 visitors (50% conversion max) | If signups exceed visitors ÷ 2, signups drop to L1 (0 pts) unless the builder proves a verifiable direct-share source (WhatsApp waitlist bypassing the site) |
 
-> **When both flags trigger.** The team goes to manual review. We decide together.
+> **When both flags trigger.** The submission goes to manual review. We decide together.
 
 ---
 
-# Tie-breakers
-
-When two teams land the same score.
-
-| When | Step 1 | Step 2 | Step 3 |
-|------|--------|--------|--------|
-| **Per track** | Root parameter score (signups for Virality, signups for Revenue, real output for MaaS) | Live product quality score | Our panel vote |
-| **Overall (cross-track)** | Highest single-track score | Our panel vote | — |
-
 ## A few honest notes
 
-- **L5 is reachable, not aspirational.** Ship well and you can hit it. Overflow is for teams that blow past L5.
+- **L5 is reachable, not aspirational.** Ship well and you can hit it. Overflow is for builders who blow past L5.
 - **Evidence is not optional for L4+.** Stripe shots, signed LOIs, PostHog access — if it's not there, the parameter caps at L3.
-- **The showcase is not the score.** Being good on stage doesn't hide a hollow build, and being shaky on stage doesn't hide a strong one. The rubric is applied to what's shipped and submitted, not how you present.
-- **You cannot self-select for Sunday.** The top two are chosen by rubric score plus our own evaluation. Your job is to ship something the rubric rewards.
+- **Every submission gets an individual review.** There is no ranking or Sunday presentation. The score and feedback are there to show what worked and what to improve next.
