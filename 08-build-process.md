@@ -6,7 +6,7 @@ This is the most important page in the handbook. Read it twice. Slowly. Don't wo
 
 ## The shape — every product has three layers
 
-Doesn't matter if you're on Virality, Revenue, or MaaS. Doesn't matter if you're building a dating-profile reviewer or a B2B SaaS. Every single product you will ever build breaks into the same three layers. If you can see the three layers, you can build anything.
+Doesn't matter if you're on Virality, Revenue, or AI Agent as a Service. Doesn't matter if you're building a dating-profile reviewer or a B2B SaaS. Every single product you will ever build breaks into the same three layers. If you can see the three layers, you can build anything.
 
 ### 1. Frontend — the interface
 
@@ -108,23 +108,29 @@ Where your code lives. Every change gets pushed here. **By Sunday you'll have a 
 
 ## The target — what you need to submit, by when
 
-Every track — Virality, Revenue, MaaS — has its own scoring rubric. You'll see it on the Scoring page. The realistic target for most of you looks like this:
+Every track — Virality, Revenue, AI Agent as a Service — has its own scoring rubric. You'll see it on the Scoring page. The realistic target for most of you looks like this:
 
-### Thursday midnight — some params at L2
+### Thursday night — lock the idea and start the waitlist
 
-Not all. Some. For most tracks, L2 = **a waitlist landing page live on the internet + a public launch post out**. That's it. That's the Thursday bar.
+Finish setup, lock the scope, and start the waitlist page. It does not need to be public tonight, but the one-liner and page need to be moving before you stop.
 
-### Friday — push to L3
+### Friday midnight — some params at L2
+
+Not all. Some. For most tracks, L2 starts with **a waitlist landing page live on the internet + a public launch post out by 11am**. Then start wiring the real product.
+
+### Saturday — push to L3
 
 Now you wire the actual product flow. The real thing people will use. Upload → process → result. Sign-up → core action → return.
 
-### Saturday 8pm — final submission
+### Sunday 8pm IST — final submission
 
-Keep racking points through Saturday. Polish. Fix. Launch louder. Final submission closes at 8pm sharp.
+Use the Sunday morning Q&A for final blockers, then keep racking points. Polish. Fix. Launch louder. Final submission closes at 8pm IST sharp.
 
-### The simplest path to L2 by Thursday
+**[Submit your AI Immersion project →](https://growthx.club/ai-immersion/submit)**
 
-If you have never touched code before, here is the dead-simple Thursday move: **a waitlist landing page**. One screen. A sharp headline. A bulleted list of what you're building. An email field. A submit button. That's L2.
+### The simplest path to L2 by Friday
+
+If you have never touched code before, here is the dead-simple move: **start a waitlist landing page Thursday night and launch it by Friday 11am.** One screen. A sharp headline. A bulleted list of what you're building. An email field. A submit button. That's the first L2 proof.
 
 You open Claude Code and say something like this:
 
@@ -137,6 +143,6 @@ clean design, lots of whitespace, one accent colour.
 ship it to vercel when it's ready and give me the live url.
 ```
 
-That's the prompt. Claude Code does the rest. You'll have a real live URL in under an hour. Share it in your launch post. That's Thursday done. Friday you go deeper — you build the actual product behind the waitlist. The one you scoped. The one you POC'd. The real thing.
+That's the prompt. Claude Code does the rest. You'll have a real live URL in under an hour. Share it in your Friday launch post. Then go deeper — build the actual product behind the waitlist. The one you scoped. The one you POC'd. The real thing.
 
-> **One last thing before you go build.** You are not here to become an engineer in four days. That's not the point. You are here to become the person who can **scope a product, validate the core, and ship something real to the open internet.** That's the move. Once you've done it once, you can do it every weekend for the rest of your life. So — scope. POC. Build. Don't skip. Trust your eye. Manage the intern. Ship by Saturday 8pm. Go.
+> **One last thing before you go build.** You are not here to become an engineer in four days. That's not the point. You are here to become the person who can **scope a product, validate the core, and ship something real to the open internet.** That's the move. Once you've done it once, you can do it again. So — scope. POC. Build. Don't skip. Trust your eye. Manage the intern. Ship by Sunday 8pm IST. Go.

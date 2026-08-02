@@ -1,6 +1,6 @@
 # Before we start, I need to know where you are.
 
-There are four levels people sit at with AI right now. Find yourself on this ladder. Be honest — the whole week is designed around getting every single one of you from wherever you're starting to L4.
+There are five levels people sit at with AI right now. Find yourself on this ladder. Be honest — the whole week is designed around getting every single one of you from wherever you're starting to L5.
 
 ## The AI levels
 
@@ -22,7 +22,7 @@ You typed a prompt, you watched a working page render in your browser, and you p
 
 Something that runs end-to-end without you babysitting it. Scrapes, classifies, decides, sends. Maybe a lead pipeline, a report generator, a Slack bot. You've started thinking about agents as employees — not features you bolt on.
 
-### L4 — Full-stack builder, the finish line
+### L4 — Full-stack builder · by Sunday night
 
 **You've used Claude Code to ship a full product.**
 
@@ -30,11 +30,17 @@ Frontend. Backend. Database. Deployed. You have a repo, it runs, someone can ope
 
 *And yes, that includes you if you're at L1 today.*
 
+### L5 — The finish line · the AI-first leader
+
+***The* AI first leader.**
+
+You **build and you distribute**. Product, users, traction. You stop waiting on anyone to ship your ideas.
+
 ## The promise
 
-### L1 to L4. Four days.
+### L1 to L5. Four days.
 
-Doesn't matter where you start. The weekender is built so every single one of you walks away from consuming AI tools to shipping an entirely full product by Sunday night.
+Doesn't matter where you start. The immersion is built so every single one of you walks away from consuming AI tools to shipping a full product — and distributing it — by Sunday night.
 
 And the first time you see a green square land on your GitHub profile — that's the flex you'll show your friends. First red-green commit graph of your life. Don't underestimate that moment.
 
@@ -50,7 +56,7 @@ The number one thing I need from you — no matter how lost you feel, **you have
 
 ### 20% will ship. 80% won't.
 
-The 80% will drop off mid-week. They'll feel lost, stop showing up, tell themselves they'll catch the next one. **They lose one month of membership. Removed from Slack. Done.**
+The 80% will drop off mid-week. They'll feel lost, stop showing up, tell themselves they'll catch the next one.
 
 You decide which side you're on. You don't have to feel ready. You have to keep showing up. That's the only rule.
 

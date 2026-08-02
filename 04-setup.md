@@ -76,7 +76,7 @@ Once you're logged in, the browser will say "you're authenticated. you can close
 Copy **everything** inside the block below — it's long but you only paste it once. Paste it at the `>` prompt in your terminal. Press enter. Claude reads it and starts.
 
 ```
-you are helping me set up my laptop for an ai weekender. i am a beginner — treat me as someone with ~zero terminal experience. be patient, explain what each command does in one short sentence before running it, and pause whenever i need to click a browser, enter a password, or type input.
+you are helping me set up my laptop for the GrowthX AI Immersion. i am a beginner — treat me as someone with ~zero terminal experience. be patient, explain what each command does in one short sentence before running it, and pause whenever i need to click a browser, enter a password, or type input.
 
 how to work:
 - do one numbered section at a time. don't batch.

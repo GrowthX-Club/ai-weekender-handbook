@@ -12,7 +12,7 @@ These ideas exist because most builders waste their ideation window. If somethin
 
 - 🎯 **Virality** — the project's edge is how it spreads
 - 💰 **Revenue** — the project earns real money in the sprint
-- 🤖 **MaaS (Multi-Agent-as-a-Service)** — the project replaces an agency or team with agents
+- 🤖 **AI Agent as a Service** — the project replaces a complete human function with an autonomous agent system
 
 ## Lean into your strengths
 
@@ -26,11 +26,11 @@ A following helps but does **not** matter. Virality is not about followers. It's
 
 You know an industry inside-out — operators, decision-makers, real workflows, real spend. You can name a small painful problem in that industry where someone would pay tomorrow if a working tool existed. That ASAP-revenue instinct is the edge. Not a network. Not a sales pipeline. Pattern recognition + a two-day shippable wedge.
 
-### 🤖 MaaS — if you are already very technical. This is the hardest track. Pick it only if you can take the heat.
+### 🤖 AI Agent as a Service — if you are already very technical. This is the hardest track. Pick it only if you can take the heat.
 
-MaaS means replacing an entire agency or team with agents — researcher, writer, editor, publisher; or analyst, redliner, communicator. Many roles. Many failure modes. Real orchestration. You should already be comfortable with agent workflows. **If you're not technical yet, do not pick MaaS.** Pick Virality or Revenue and ship.
+AI Agent as a Service means replacing an entire human function with agents — researcher, writer, editor, publisher; or analyst, redliner, communicator. Many roles. Many failure modes. Real orchestration. You should already be comfortable with agent workflows. **If you're not technical yet, do not pick AI Agent as a Service.** Pick Virality or Revenue and ship.
 
-> **Not sure?** Default to Virality or Revenue. They are the right choice for almost everyone. MaaS is the hard road — only choose it if you already know your way around agent systems.
+> **Not sure?** Default to Virality or Revenue. They are the right choice for almost everyone. AI Agent as a Service is the hard road — only choose it if you already know your way around agent systems.
 
 ## Honest difficulty
 
@@ -706,13 +706,13 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ---
 
-# 🤖 MaaS ideas
+# 🤖 AI Agent as a Service ideas
 
 ## Challenging
 
 ### 26. Daily Podcast Builder
 
-**Difficulty**: Challenging · **Track**: MaaS
+**Difficulty**: Challenging · **Track**: AI Agent as a Service
 **Pitch**: Connected sources auto-generate a narrated podcast episode every morning.
 **Why challenging**: Multi-source aggregation, script generation, TTS narration, audio mixing, RSS feed generation.
 **User story**: As a founder who never reads my saved articles, I connect 5 sources: my Readwise, HN favorites, two newsletters, a crypto Substack. Every morning at 7am a 12-minute podcast lands in my Overcast with an intro jingle, a host voice reading a synthesized digest, and ad-style transitions between topics.
@@ -727,7 +727,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 27. Neighborhood Oracle
 
-**Difficulty**: Challenging · **Track**: MaaS
+**Difficulty**: Challenging · **Track**: AI Agent as a Service
 **Pitch**: Enter any neighborhood, get the actual vibe from Reddit, Instagram, Maps, and real estate data.
 **Why challenging**: Multi-source aggregation with sentiment synthesis, geo-tagged post analysis, trend detection.
 **User story**: As someone deciding between HSR and Indiranagar, I type both. Each one returns a vibe card: "HSR: young techies, brunch, 68% satisfaction, complaint theme = traffic post-6pm, rising rents" vs "Indiranagar: older money, queer-friendly, 74% satisfaction, complaint theme = parking, stable rents." Cited sources under each line.
@@ -742,7 +742,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 28. Chrome Extension: Who Made This Website
 
-**Difficulty**: Challenging · **Track**: MaaS
+**Difficulty**: Challenging · **Track**: AI Agent as a Service
 **Pitch**: Click on any site, see the team, stack, funding, and developers behind it.
 **Why challenging**: Tech detection + company lookup + team identification from multiple APIs, browser extension architecture.
 **User story**: As a dev on any website, I click the extension. A side panel slides in: "Linear.app — stack: Next.js, tRPC, PostgreSQL, Vercel. Company: Linear Inc, Series B, $35M, 62 employees. Founders: Karri Saarinen, Tuomas Artman. Current team with LinkedIn + GitHub links. Built with Claude Code? Probably not."
@@ -757,7 +757,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 35. AI Marketing Team
 
-**Difficulty**: Challenging · **Track**: MaaS
+**Difficulty**: Challenging · **Track**: AI Agent as a Service
 **Pitch**: Brand brief in, full campaign out: landing copy, 2-week social calendar, email sequence, launch thread.
 **Why challenging**: CMO + copywriter + social planner + editor agents. Brand-voice consistency across artifacts, channel-calibrated output per platform.
 **User story**: As a solo founder launching a dev tool, I paste a brand brief: "CLI for X, irreverent voice, sarcastic like Oatly." Four agents go to work. The CMO writes the strategy. The copywriter drafts landing copy. The social planner builds a 14-day calendar. The editor rewrites everything in the shared voice. 90 seconds later I have a launch packet.
@@ -773,7 +773,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 36. AI HR Team
 
-**Difficulty**: Challenging · **Track**: MaaS
+**Difficulty**: Challenging · **Track**: AI Agent as a Service
 **Pitch**: JD in, sourced candidates + personalized outreach + screening questions + interview panel out.
 **Why challenging**: Head of Talent + sourcer + screener + outreach writer + scheduler agents. JD→ICP mapping, LinkedIn/GitHub scraping, tone-matched cold email per candidate.
 **User story**: As a hiring manager, I paste a senior frontend engineer JD. Five agents collaborate: Head of Talent builds an ICP, sourcer scrapes 80 candidates from LinkedIn + GitHub, screener ranks them by fit, outreach writer crafts a personalized email citing each candidate's recent repo, scheduler inserts calendly slots. I approve a batch and it sends.
@@ -789,7 +789,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 37. AI Content Team
 
-**Difficulty**: Challenging · **Track**: MaaS
+**Difficulty**: Challenging · **Track**: AI Agent as a Service
 **Pitch**: Topic in, full package out: blog post + Twitter thread + LinkedIn post + newsletter + cover-image brief.
 **Why challenging**: Editor-in-chief + researcher + writer + SEO specialist + social repurposer agents. Same POV across formats, per-channel calibration, style guide adherence.
 **User story**: As a creator, I type a topic: "why junior devs should ship ugly code." Editor-in-chief sets the thesis. Researcher gathers supporting data. Writer drafts a 1,200-word post. SEO specialist tunes keywords. Social repurposer spins it into an 8-tweet thread, a LinkedIn post, and a newsletter blurb — all holding the same POV, each calibrated to its platform.
@@ -805,7 +805,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 38. AI Support Team
 
-**Difficulty**: Challenging · **Track**: MaaS
+**Difficulty**: Challenging · **Track**: AI Agent as a Service
 **Pitch**: Inbox of tickets in, triaged + resolved + escalated + weekly post-mortem out.
 **Why challenging**: Head of Support + triage + tier-1 + tier-2 + post-mortem writer agents. KB retrieval, escalation confidence scoring, incident pattern detection across tickets.
 **User story**: As a solo SaaS founder drowning in Intercom, I connect my inbox and KB. The agent team wakes up: triage classifies 47 tickets, tier-1 auto-resolves 31 password resets, tier-2 handles 12 billing issues (escalates 2 I need to see), and at week's end the post-mortem agent writes: "23% of tickets were onboarding; ship a checklist."
@@ -823,7 +823,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 29. AI Radio Station
 
-**Difficulty**: Beast Mode · **Track**: MaaS
+**Difficulty**: Beast Mode · **Track**: AI Agent as a Service
 **Pitch**: 24/7 AI DJ monitoring live feeds with real-time commentary, music, and audience interaction.
 **Why beast**: 5 coordinating agents (Feed Monitor, Editorial, DJ, Music, Listener), real-time audio generation, persistent personality, live state management across hours of broadcast.
 **User story**: As a listener, I tune into the stream. An AI DJ with a consistent voice is mid-sentence about today's cricket score, segues into a song, takes a listener call-in from me on Discord, and spins it into the next segment. The station has been live for 6 hours with no repetition, reacting to news as it breaks.
@@ -839,7 +839,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 30. The Open Source Maintainer's Cabinet
 
-**Difficulty**: Beast Mode · **Track**: MaaS
+**Difficulty**: Beast Mode · **Track**: AI Agent as a Service
 **Pitch**: Multi-agent system managing triage, PR review, releases, community, and docs for a repo.
 **Why beast**: 5 agents with inter-agent conflicts (Triage wants to close, Community says "be gentle"), persistent project context, GitHub API integration across issues/PRs/releases.
 **User story**: As a solo OSS maintainer, I connect my repo. 5 agents take over. Triage wants to close an old stale issue. Community objects: "the OP is a first-time contributor, respond gently first." They resolve to request an update with a kind message. PR agent drafts a review, Release agent notices the changelog is broken, Docs agent fixes an out-of-date example.
@@ -855,7 +855,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 31. The Codebase Civilization
 
-**Difficulty**: Beast Mode · **Track**: MaaS
+**Difficulty**: Beast Mode · **Track**: AI Agent as a Service
 **Pitch**: Multi-agent system where Frontend, Backend, Security, and Performance agents collaboratively build from a spec.
 **Why beast**: Inter-agent code review with semantic understanding, consensus mechanism, convergence problem (preventing infinite review cycles), each agent needs a real domain model.
 **User story**: As a PM, I hand over a spec: "build a user-invite flow." Frontend drafts a React form. Backend drafts an API. Security reviews, flags the token is not signed. Performance reviews, flags the query is N+1. Frontend adjusts, Backend adjusts, Security approves, Performance signs off. The system knows when to stop reviewing and ship.
@@ -871,7 +871,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 39. AI Engineering Team
 
-**Difficulty**: Beast Mode · **Track**: MaaS
+**Difficulty**: Beast Mode · **Track**: AI Agent as a Service
 **Pitch**: Feature request in, reviewed and tested PR out. Tech Lead routes to frontend + backend + QA + DevOps agents who review each other.
 **Why beast**: The canonical agent-company build. Code generation across specialties, inter-agent code review, test runner integration, Git PR lifecycle, convergence problem (when does the review cycle end?).
 **User story**: As a founder, I type "add a dark mode toggle." Tech Lead breaks it into tasks. Frontend drafts the toggle. Backend adds a user pref column. QA writes tests that catch a flash-of-unstyled-content bug. DevOps flags the migration needs a down script. Cycle repeats until all four approve. Final output: a green PR with passing CI.
@@ -887,7 +887,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 40. AI Legal Team
 
-**Difficulty**: Beast Mode · **Track**: MaaS
+**Difficulty**: Beast Mode · **Track**: AI Agent as a Service
 **Pitch**: Contract or legal situation in, risk analysis + redlines + filing drafts out.
 **Why beast**: General Counsel + corporate + IP + compliance specialist agents. Document parsing, jurisdiction-aware reasoning, citation lookup, risk-rated output. Wrong output has real consequences — guardrails are part of the build.
 **User story**: As a founder with a 40-page SaaS agreement, I upload it. General Counsel frames the risk profile. Corporate flags an auto-renewal clause. IP flags a "works made for hire" ambiguity. Compliance cross-references GDPR. I get a redlined PDF with 14 changes, each with a one-line rationale and a citation — and a loud banner: "this is not legal advice."
@@ -903,7 +903,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 41. AI Finance Team
 
-**Difficulty**: Beast Mode · **Track**: MaaS
+**Difficulty**: Beast Mode · **Track**: AI Agent as a Service
 **Pitch**: Company books in, monthly close + cash flow forecast + tax prep + AR collections outreach out.
 **Why beast**: CFO + bookkeeper + tax specialist + FP&A analyst + collections agents. Structured financial data, no-hallucination categorization, forecast modeling, outbound AR chase emails.
 **User story**: As a startup founder on the last day of the month, I connect my bank + Stripe + QuickBooks. Bookkeeper categorizes 347 transactions with 0 hallucinations. FP&A produces a 13-week forecast. Tax specialist flags two deductions I missed. Collections agent drafts firm-but-kind chase emails to 4 late clients. CFO writes the board update.
@@ -919,7 +919,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 42. AI Sales Team
 
-**Difficulty**: Beast Mode · **Track**: MaaS
+**Difficulty**: Beast Mode · **Track**: AI Agent as a Service
 **Pitch**: ICP in, prospect list + cold emails + demo script + proposal + onboarding plan out.
 **Why beast**: VP Sales + SDR + AE + sales engineer + CSM agents. Live prospecting, multi-channel outreach generation, objection handling, pipeline state tracking across stages.
 **User story**: As a founder with a new product, I paste an ICP: "Series A B2B SaaS, 50-200 employees, RevOps lead." VP Sales sets strategy. SDR scrapes 200 prospects. AE drafts personalized cold emails. Sales Engineer writes a demo script tailored to each company's stack. CSM drafts an onboarding plan for the 3 who say yes. Pipeline stage tracker shows everything in motion.
@@ -935,7 +935,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 43. AI Product Team
 
-**Difficulty**: Beast Mode · **Track**: MaaS
+**Difficulty**: Beast Mode · **Track**: AI Agent as a Service
 **Pitch**: User problem in, user stories + wireframes + acceptance criteria + analytics spec + ranked backlog out.
 **Why beast**: Head of Product + PM + designer + data analyst + user researcher agents. User-journey modeling, wireframe generation, success-metric definition, cross-feature priority scoring.
 **User story**: As a founder with a vague insight, I type "users keep dropping off at checkout." User researcher frames 3 hypotheses. Data analyst checks the funnel. Designer sketches 3 wireframe options. PM writes user stories with acceptance criteria. Head of Product ranks them by impact × effort. I get a prioritized backlog with analytics events already specified.
@@ -951,7 +951,7 @@ MaaS means replacing an entire agency or team with agents — researcher, writer
 
 ### 44. Build Your Own AI Team
 
-**Difficulty**: Beast Mode · **Track**: MaaS
+**Difficulty**: Beast Mode · **Track**: AI Agent as a Service
 **Pitch**: Describe any service business, spin up a custom agent org with configurable roles and escalation paths. Watch it run a live task.
 **Why beast**: Meta-system. Role-definition DSL, inter-agent protocol setup, live observability, management UI. Effectively a platform, not a product.
 **User story**: As a builder, I type "a boutique law firm specializing in startup contracts." The app generates an org chart: Managing Partner, Corporate Associate, IP Counsel, Paralegal, Intake. I edit roles, set escalation paths ("Paralegal → Corporate Associate if complexity > 6"), hit run. I throw a real task at it and watch the org execute in real time.

@@ -1,17 +1,17 @@
 # Each day has an outcome. Here's what you're aiming at.
 
-Three live sessions — Wed, Thu, Fri — all at 8pm. Live sessions are **Q&A only**. You build between sessions, not during. Come to each call with what you've built. We unstick you, push you, keep you honest.
+Four live Q&A check-ins: **Thursday at 8pm, Friday at 8pm, Saturday at 11am, and Sunday morning.** You build between sessions, not during. Come to each call with what you've built. We unstick you, push you, keep you honest.
 
-## Wednesday 22 Apr — Live, 8pm
+## Thursday 30 Jul — Live, 8pm
 
 **Outcome:** Lock your idea. Set up your stack. Understand how to build.
 
-- **15 minutes to lock your idea.** Must be tied to a pain you personally feel. Ideas don't matter — execution does — but an idea you don't relate to is impossible to ship through a week this hard.
-- **Set up the stack:** Claude Code, Convex (DB), Vercel (ship), GitHub (push). Finishing setup after the call is totally fine.
-- **Understand the build process** end-to-end: scope the document yourself, run a POC inside Claude to validate, then let AI build. Live session walks through this in full.
-- **Start your waitlist page tonight.** Not features. Not polish. A landing page + a waitlist form + a clear line about what you're building.
+- **15 minutes to lock your idea.** It must be tied to a pain you personally feel. Ideas don't matter — execution does — but an idea you don't relate to is impossible to ship through a week this hard.
+- **Set up the stack:** Claude Code or Codex, Convex (DB), Vercel (ship), GitHub (push). Finishing setup after the call is totally fine.
+- **Understand the build process** end-to-end: scope the document yourself, run a POC inside your coding agent to validate, then let AI build. The live session walks through this in full.
+- **Start your waitlist page tonight.** The frame: imagine your product is live today — all the MVPs, plus some more. Write that vision on the landing page and sell it like it exists. Write it yourself, in your words. AI copy has no pulse and everyone can smell it.
 
-## Thursday 23 Apr — Live, 8pm Q&A
+## Friday 31 Jul — Live, 8pm Q&A
 
 **Outcome:** Get your waitlist live by 11am. Then start building.
 
@@ -23,38 +23,34 @@ Three live sessions — Wed, Thu, Fri — all at 8pm. Live sessions are **Q&A on
 
 **Rubric target by midnight:** at least some parameters at L2.
 
-## Friday 24 Apr — Live, 8pm Q&A
+## Saturday 1 Aug — Live, 11am Q&A
 
 **Outcome:** Push at least some parameters to L3.
 
 - Tighten your build. Wire the actual product — not just the waitlist. One core flow that works end to end.
 - Not everything needs to be at L3 — just get *some* parameters there. Pick the two or three that matter most for your track and push those.
 - Keep showing the work. Post an update, a screen recording, a before/after. Feedback loop stays open.
-- **Live session, 8pm:** Q&A only. Build before you show up. Come with a specific question or a specific block — not "please review my whole project."
+- **Live session, 11am:** Q&A only. Build before you show up. Come with a specific question or a specific block — not "please review my whole project."
 
 **Rubric target by end of day:** at least some parameters at L3.
 
-## Saturday 25 Apr — Submit, 8pm
+## Sunday 2 Aug — Morning Q&A; submit by 8pm IST
 
-**Outcome:** Keep racking rubric points. Submit at 8pm.
+**Outcome:** Keep racking rubric points. Submit by 8pm IST.
 
-- Saturday is your work day. Keep tweaking, keep adding what matters, keep shipping.
-- Slack channel open all day for last-mile questions. Help each other across the finish line.
-- **Final submission at 8pm.** Live URL, repo, your track metrics (signups / impressions / agent output). Hard cutoff.
+- **One last Q&A in the morning.** Come with your final blockers. This is the last time we unstick you live. After this call you're on your own until submission.
+- Sunday is your work day. Keep tweaking, keep adding what matters, keep shipping.
+- Slack channel is open all day for last-mile questions. Help each other across the finish line.
+- **Final submission by 8pm IST.** Submit your live URL, public repo, and track metrics (signups / impressions / agent output). This is a hard cutoff.
+- **Everyone who submits gets feedback.** You receive specific, direct notes on how to push your work further. This is an individual review, not a ranking.
 - **If you submit, you are in the 20%.**
 
-## Sunday 26 Apr — Showcase
-
-**Outcome:** Top two present. Everyone else gets feedback on what to build next.
-
-- Top two picked on rubric plus our own evaluation. They present their build to the group.
-- **Top two win:** one additional year of GrowthX membership — or gift it to anyone they choose, for free.
-- Everyone else who submitted gets specific, direct feedback on how to push their work further from here. Show up either way.
+**[Submit your AI Immersion project →](https://growthx.club/ai-immersion/submit)**
 
 ## The commitment
 
-### Three evenings live. You build in between.
+### Two evening Q&As. Two daytime check-ins. You build in between.
 
-Every live session is post-8pm by design — they sit after your working hours. **Live sessions are Q&A only.** You do the building before the call and come with what you have. This is not a classroom. It's a check-in.
+Thursday and Friday are at 8pm. Saturday is at 11am. Sunday has one final morning Q&A before the **8pm IST submission cutoff**. Every live session is Q&A only. You do the building before the call and come with what you have. This is not a classroom. It's a check-in.
 
 Plan on four to six hours of real focused build time across the sprint. Less than that and you will not ship. Block the calendar. Tell your people. Show up.

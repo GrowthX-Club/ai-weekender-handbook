@@ -4,7 +4,7 @@ Install 6 skills. Claude follows them automatically.
 
 Skills are instruction packs your coding agent reads when a relevant task comes up. Installing the React skill means Claude follows React performance rules without you ever asking. Installing the design skill means it stops giving you generic purple-gradient AI-looking UI. Install once, then build all weekend. ~5 minutes.
 
-> ⚠ **Do this on kickoff night, not now.** Skills install into the folder you run the command from. You don't have a project folder yet — that gets scaffolded on Wednesday at kickoff. Come back to this page once you've created your project folder and you're inside it. `cd` into your project, then start step 1 below.
+> ⚠ **Do this on kickoff night, not now.** Skills install into the folder you run the command from. You don't have a project folder yet — that gets scaffolded on Thursday at kickoff. Come back to this page once you've created your project folder and you're inside it. `cd` into your project, then start step 1 below.
 
 ## The 6 skills
 
@@ -32,10 +32,10 @@ Better landing page copy, headlines, marketing text. When you say "write the her
 
 Skills install into the folder you run the command from. So first, get inside your project folder.
 
-If you scaffolded your project at kickoff, it's probably called something like `my-weekender-project`. Type:
+If you scaffolded your project at kickoff, it's probably called something like `my-immersion-project`. Type:
 
 ```bash
-cd my-weekender-project
+cd my-immersion-project
 ```
 
 **Done when:** your terminal prompt shows you're inside the project folder.
@@ -55,7 +55,7 @@ Same flag as before — Claude installs the skills without stopping to ask permi
 Copy the whole block, paste at the `>` prompt, press enter.
 
 ```
-install the following 6 weekender skills. run each command in order, confirm success after each, and summarize at the end.
+install the following 6 AI Immersion skills. run each command in order, confirm success after each, and summarize at the end.
 
 1. npx --yes skills add https://github.com/vercel-labs/agent-skills --skill vercel-react-best-practices
 2. npx --yes skills add https://github.com/anthropics/skills --skill frontend-design
