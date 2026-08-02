@@ -51,6 +51,11 @@ const RUBRIC_FIT_COPY = new Map([
   ['Revenue', 46],
   ['AI Agent as a Service', 26],
 ]);
+const IDEA_BANK_TRACK_COPY = new Map([
+  ['Virality', 'Virality'],
+  ['Revenue', 'Revenue'],
+  ['Agent', 'AI Agent as a Service'],
+]);
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -65,6 +70,62 @@ function htmlWithoutNonVisibleRegions(source) {
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<!--([\s\S]*?)-->/g, '');
+}
+
+function rubricFitBlock(track) {
+  return `<h4>Rubric fit</h4><p>Use only the ${track} parameter ladders and evidence rules on the Scoring page.</p>`;
+}
+
+function ideaBankRubricFitIssues(source) {
+  const visibleHtml = htmlWithoutNonVisibleRegions(source);
+  const issues = [];
+  let cardRubricFitTotal = 0;
+
+  for (const match of visibleHtml.matchAll(/<article\b([^>]*)>([\s\S]*?)<\/article>/gi)) {
+    const attributes = match[1];
+    const className = attributes.match(/\bclass=["']([^"']*)["']/i)?.[1] ?? '';
+    if (!className.split(/\s+/).includes('ib-card')) continue;
+
+    const cardBody = match[2];
+    const rubricFitHeadings = countMatches(cardBody, /<h4>Rubric fit<\/h4>/gi);
+    if (rubricFitHeadings === 0) continue;
+    cardRubricFitTotal += rubricFitHeadings;
+
+    const cardNumber = cardBody.match(/<div class="ib-num">([^<]+)<\/div>/i)?.[1] ?? 'unknown';
+    const storedTrack = attributes.match(/\bdata-track=["']([^"']+)["']/i)?.[1];
+    const publicTrack = IDEA_BANK_TRACK_COPY.get(storedTrack);
+    if (!publicTrack) {
+      issues.push(`Idea Bank card ${cardNumber} has Rubric fit copy but an unsupported data-track: ${storedTrack ?? 'missing'}`);
+      continue;
+    }
+
+    if (rubricFitHeadings !== 1) {
+      issues.push(`Idea Bank card ${cardNumber} has ${rubricFitHeadings} Rubric fit headings; expected 1`);
+    }
+    if (countMatches(cardBody, new RegExp(escapeRegExp(rubricFitBlock(publicTrack)), 'g')) !== 1) {
+      issues.push(`Idea Bank card ${cardNumber} data-track=${storedTrack} does not use ${publicTrack} Rubric fit copy`);
+    }
+  }
+
+  const globalRubricFitTotal = countMatches(visibleHtml, /<h4>Rubric fit<\/h4>/gi);
+  if (cardRubricFitTotal !== globalRubricFitTotal) {
+    issues.push(
+      `${globalRubricFitTotal - cardRubricFitTotal} Rubric fit headings are outside article.ib-card[data-track]`,
+    );
+  }
+
+  return issues;
+}
+
+function swapFirstOccurrences(source, left, right) {
+  const leftIndex = source.indexOf(left);
+  const rightIndex = source.indexOf(right);
+  if (leftIndex === -1 || rightIndex === -1 || leftIndex === rightIndex) return null;
+
+  if (leftIndex < rightIndex) {
+    return `${source.slice(0, leftIndex)}${right}${source.slice(leftIndex + left.length, rightIndex)}${left}${source.slice(rightIndex + right.length)}`;
+  }
+  return `${source.slice(0, rightIndex)}${left}${source.slice(rightIndex + right.length, leftIndex)}${right}${source.slice(leftIndex + left.length)}`;
 }
 
 check(contract.version === current, `rubric/CURRENT matches contract version ${contract.version}`);
@@ -340,6 +401,12 @@ for (const [label, source] of [['Static source', html], ['Publish candidate', pu
   }
   check(rubricFitTotal === 82, `${label} contains exactly 82 track-specific Rubric fit blocks`);
 
+  const cardScopedIssues = ideaBankRubricFitIssues(visibleHtml);
+  check(
+    cardScopedIssues.length === 0,
+    `${label} matches each Rubric fit block to its containing Idea Bank card data-track${cardScopedIssues.length ? `: ${cardScopedIssues.join('; ')}` : ''}`,
+  );
+
   for (const level of ['1', '2', '3', '4', '5']) {
     const levelExpression = new RegExp(`<div class="ai-level-num">L${level}<\\/div>`, 'g');
     check(
@@ -363,6 +430,21 @@ for (const [label, source] of [['Static source', html], ['Publish candidate', pu
     check(!source.toLowerCase().includes(phrase.toLowerCase()), `${label} omits legacy scoring copy: ${phrase}`);
   }
 }
+
+const viralityRubricFitBlock = rubricFitBlock('Virality');
+const revenueRubricFitBlock = rubricFitBlock('Revenue');
+const swappedRubricFitHtml = swapFirstOccurrences(html, viralityRubricFitBlock, revenueRubricFitBlock);
+const swapPreservesGlobalCounts =
+  swappedRubricFitHtml !== null &&
+  [viralityRubricFitBlock, revenueRubricFitBlock].every(
+    block =>
+      countMatches(swappedRubricFitHtml, new RegExp(escapeRegExp(block), 'g')) ===
+      countMatches(html, new RegExp(escapeRegExp(block), 'g')),
+  );
+check(
+  swapPreservesGlobalCounts && ideaBankRubricFitIssues(swappedRubricFitHtml ?? '').length > 0,
+  'card-scoped validation rejects a Virality/Revenue Rubric fit paragraph swap while global totals stay unchanged',
+);
 
 const requiredHtmlWelcomeCopy = [
   'There are five levels people sit at with AI right now.',

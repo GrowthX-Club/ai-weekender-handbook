@@ -16,6 +16,11 @@ const RUBRIC_FIT_COPY = new Map([
   ['Revenue', 46],
   ['AI Agent as a Service', 26],
 ]);
+const IDEA_BANK_TRACK_COPY = new Map([
+  ['Virality', 'Virality'],
+  ['Revenue', 'Revenue'],
+  ['Agent', 'AI Agent as a Service'],
+]);
 
 if (process.argv.includes('--apply')) {
   throw new Error(
@@ -169,6 +174,79 @@ function htmlWithoutNonVisibleRegions(source) {
     .replace(/<!--([\s\S]*?)-->/g, '');
 }
 
+function rubricFitBlock(track) {
+  return `<h4>Rubric fit</h4><p>Use only the ${track} parameter ladders and evidence rules on the Scoring page.</p>`;
+}
+
+function ideaBankRubricFitIssues(source) {
+  const visibleHtml = htmlWithoutNonVisibleRegions(source);
+  const issues = [];
+  let cardRubricFitTotal = 0;
+
+  for (const match of visibleHtml.matchAll(/<article\b([^>]*)>([\s\S]*?)<\/article>/gi)) {
+    const attributes = match[1];
+    const className = attributes.match(/\bclass=["']([^"']*)["']/i)?.[1] ?? '';
+    if (!className.split(/\s+/).includes('ib-card')) continue;
+
+    const cardBody = match[2];
+    const rubricFitHeadings = countMatches(cardBody, /<h4>Rubric fit<\/h4>/gi);
+    if (rubricFitHeadings === 0) continue;
+    cardRubricFitTotal += rubricFitHeadings;
+
+    const cardNumber = cardBody.match(/<div class="ib-num">([^<]+)<\/div>/i)?.[1] ?? 'unknown';
+    const storedTrack = attributes.match(/\bdata-track=["']([^"']+)["']/i)?.[1];
+    const publicTrack = IDEA_BANK_TRACK_COPY.get(storedTrack);
+    if (!publicTrack) {
+      issues.push(`Idea Bank card ${cardNumber} has Rubric fit copy but an unsupported data-track: ${storedTrack ?? 'missing'}`);
+      continue;
+    }
+
+    if (rubricFitHeadings !== 1) {
+      issues.push(`Idea Bank card ${cardNumber} has ${rubricFitHeadings} Rubric fit headings; expected 1`);
+    }
+    if (countMatches(cardBody, new RegExp(escapeRegExp(rubricFitBlock(publicTrack)), 'g')) !== 1) {
+      issues.push(`Idea Bank card ${cardNumber} data-track=${storedTrack} does not use ${publicTrack} Rubric fit copy`);
+    }
+  }
+
+  const globalRubricFitTotal = countMatches(visibleHtml, /<h4>Rubric fit<\/h4>/gi);
+  if (cardRubricFitTotal !== globalRubricFitTotal) {
+    issues.push(
+      `${globalRubricFitTotal - cardRubricFitTotal} Rubric fit headings are outside article.ib-card[data-track]`,
+    );
+  }
+
+  return issues;
+}
+
+function swapFirstOccurrences(source, left, right) {
+  const leftIndex = source.indexOf(left);
+  const rightIndex = source.indexOf(right);
+  if (leftIndex === -1 || rightIndex === -1 || leftIndex === rightIndex) {
+    throw new Error('Could not construct the Virality/Revenue Rubric fit mutation');
+  }
+
+  if (leftIndex < rightIndex) {
+    return `${source.slice(0, leftIndex)}${right}${source.slice(leftIndex + left.length, rightIndex)}${left}${source.slice(rightIndex + right.length)}`;
+  }
+  return `${source.slice(0, rightIndex)}${left}${source.slice(rightIndex + right.length, leftIndex)}${right}${source.slice(leftIndex + left.length)}`;
+}
+
+function assertCardScopedRubricFitMutationRejected(source) {
+  const viralityBlock = rubricFitBlock('Virality');
+  const revenueBlock = rubricFitBlock('Revenue');
+  const mutated = swapFirstOccurrences(source, viralityBlock, revenueBlock);
+
+  for (const block of [viralityBlock, revenueBlock]) {
+    if (countMatches(mutated, new RegExp(escapeRegExp(block), 'g')) !== countMatches(source, new RegExp(escapeRegExp(block), 'g'))) {
+      throw new Error('Rubric fit swap mutation changed global track totals');
+    }
+  }
+  if (ideaBankRubricFitIssues(mutated).length === 0) {
+    throw new Error('Card-scoped Rubric fit validation accepted a Virality/Revenue paragraph swap');
+  }
+}
+
 function assertParticipantStructure(source, label) {
   const visibleHtml = htmlWithoutNonVisibleRegions(source);
   const visibleSubmissionLink = new RegExp(
@@ -193,6 +271,11 @@ function assertParticipantStructure(source, label) {
   }
   if (rubricFitTotal !== 82) throw new Error(`${label} has ${rubricFitTotal} Rubric fit blocks; expected 82`);
 
+  const cardScopedIssues = ideaBankRubricFitIssues(visibleHtml);
+  if (cardScopedIssues.length > 0) {
+    throw new Error(`${label} has card-scoped Rubric fit errors: ${cardScopedIssues.join('; ')}`);
+  }
+
   for (const level of ['1', '2', '3', '4', '5']) {
     const expression = new RegExp(`<div class="ai-level-num">L${level}<\\/div>`, 'g');
     const actualCount = countMatches(visibleHtml, expression);
@@ -205,6 +288,7 @@ const publishCandidate = compactHtml(source);
 
 assertParticipantStructure(source, 'Static source');
 assertParticipantStructure(publishCandidate, 'Publish candidate');
+assertCardScopedRubricFitMutationRejected(source);
 
 const required = [
   '<title>AI Immersion · Builder Handbook</title>',

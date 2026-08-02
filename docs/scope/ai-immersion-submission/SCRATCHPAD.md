@@ -69,3 +69,11 @@ Chronological implementation ledger. Record source-of-truth findings, copy decis
 - Browser verification — PASS for source and publish candidate: 11 pages, exactly one active page/nav item, six rubric tabs, five-level welcome without sanction, exact CTA/href, no legacy scoring labels, no blank page, error overlay, console errors, or page errors. The CTA was visually checked at 1440×1000 and 390×844; an Idea Bank card was expanded and its replacement `Rubric fit` guidance was visually confirmed.
 - Browser evidence: `/tmp/ai-immersion-handbook-source-cta-desktop.png`, `/tmp/ai-immersion-handbook-source-cta-mobile.png`, `/tmp/ai-immersion-handbook-publish-cta-desktop.png`, `/tmp/ai-immersion-handbook-publish-idea-rubric-fit.png`.
 - `git diff --check` — PASS. No production write, publication, push, or merge was performed.
+
+### Checker-only P2 follow-up — card-scoped Rubric fit validation
+
+- Both `scripts/check-rubric.mjs` and `scripts/prepare-static-page-publication.mjs` now validate each visible `Rubric fit` block inside its containing `article.ib-card` against that card's `data-track`; the stored `Agent` track maps to the public `AI Agent as a Service` label.
+- Added an in-memory mutation that swaps the first Virality and Revenue Rubric fit paragraphs while preserving their global totals. The card-scoped validation must reject the swap.
+- `node scripts/prepare-static-page-publication.mjs` — PASS, dry-run only. Source and publish hashes remain `5168a9d67dd14df03a2b5c49f80011b8b472012c9a2b2a0962421b631d912443` and `3bbb3d7904af56e6ef963a3299f5b0f9b7aa08568e0e0bb16bf7bda2eb2492f4`; 14,950 characters remain under the limit.
+- Full read-only cross-worktree check — PASS, 738/738 checks against the isolated backend and frontend worktrees.
+- `node --check` for both scripts and `git diff --check` — PASS. No handbook content, production state, push, PR, merge, deployment, migration, or publication changed.
