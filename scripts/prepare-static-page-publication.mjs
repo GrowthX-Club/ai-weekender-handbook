@@ -10,6 +10,12 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sourcePath = path.join(ROOT, 'static-page/ai-immersion-handbook.html');
 const publishPath = path.join(ROOT, 'static-page/ai-immersion-handbook.publish.html');
 const STATIC_PAGE_CHARACTER_LIMIT = 1_024_000;
+const SUBMISSION_URL = 'https://growthx.club/ai-immersion/submit';
+const RUBRIC_FIT_COPY = new Map([
+  ['Virality', 10],
+  ['Revenue', 46],
+  ['AI Agent as a Service', 26],
+]);
 
 if (process.argv.includes('--apply')) {
   throw new Error(
@@ -148,8 +154,57 @@ function assertEqual(actual, expected, message) {
   if (JSON.stringify(actual) !== JSON.stringify(expected)) throw new Error(message);
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function countMatches(source, expression) {
+  return [...source.matchAll(expression)].length;
+}
+
+function htmlWithoutNonVisibleRegions(source) {
+  return source
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<!--([\s\S]*?)-->/g, '');
+}
+
+function assertParticipantStructure(source, label) {
+  const visibleHtml = htmlWithoutNonVisibleRegions(source);
+  const visibleSubmissionLink = new RegExp(
+    `<a\\b[^>]*\\bhref=["']${escapeRegExp(SUBMISSION_URL)}["'][^>]*>[^<]+<\\/a>`,
+    'i',
+  );
+  if (!visibleSubmissionLink.test(visibleHtml)) {
+    throw new Error(`${label} does not contain a visible canonical submission link`);
+  }
+
+  let rubricFitTotal = 0;
+  for (const [track, expectedCount] of RUBRIC_FIT_COPY) {
+    const expression = new RegExp(
+      `<h4>Rubric fit<\\/h4><p>Use only the ${escapeRegExp(track)} parameter ladders and evidence rules on the Scoring page\\.<\\/p>`,
+      'g',
+    );
+    const actualCount = countMatches(visibleHtml, expression);
+    rubricFitTotal += actualCount;
+    if (actualCount !== expectedCount) {
+      throw new Error(`${label} has ${actualCount} ${track} Rubric fit blocks; expected ${expectedCount}`);
+    }
+  }
+  if (rubricFitTotal !== 82) throw new Error(`${label} has ${rubricFitTotal} Rubric fit blocks; expected 82`);
+
+  for (const level of ['1', '2', '3', '4', '5']) {
+    const expression = new RegExp(`<div class="ai-level-num">L${level}<\\/div>`, 'g');
+    const actualCount = countMatches(visibleHtml, expression);
+    if (actualCount !== 1) throw new Error(`${label} has ${actualCount} L${level} welcome blocks; expected 1`);
+  }
+}
+
 const source = fs.readFileSync(sourcePath, 'utf8');
 const publishCandidate = compactHtml(source);
+
+assertParticipantStructure(source, 'Static source');
+assertParticipantStructure(publishCandidate, 'Publish candidate');
 
 const required = [
   '<title>AI Immersion · Builder Handbook</title>',
@@ -161,7 +216,7 @@ const required = [
   'Canonical rubric version: 2.2.0',
   'AI Agent as a Service rubric',
   '(2-1) × 4 = 4 pts',
-  'https://growthx.club/ai-immersion/submit',
+  SUBMISSION_URL,
 ];
 const forbidden = [
   'tracking toward the top two',

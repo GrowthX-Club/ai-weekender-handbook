@@ -46,6 +46,26 @@ const html = read('static-page/ai-immersion-handbook.html');
 const publishHtml = read('static-page/ai-immersion-handbook.publish.html');
 const STATIC_PAGE_CHARACTER_LIMIT = 1_024_000;
 const SUBMISSION_URL = 'https://growthx.club/ai-immersion/submit';
+const RUBRIC_FIT_COPY = new Map([
+  ['Virality', 10],
+  ['Revenue', 46],
+  ['AI Agent as a Service', 26],
+]);
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function countMatches(source, expression) {
+  return [...source.matchAll(expression)].length;
+}
+
+function htmlWithoutNonVisibleRegions(source) {
+  return source
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<!--([\s\S]*?)-->/g, '');
+}
 
 check(contract.version === current, `rubric/CURRENT matches contract version ${contract.version}`);
 check(contract.version === '2.2.0', 'canonical rubric is version 2.2.0');
@@ -242,7 +262,8 @@ for (const [label, source] of [
   ['Markdown schedule', schedule],
   ['Markdown build process', buildProcess],
 ]) {
-  check(source.includes(SUBMISSION_URL), `${label} contains the canonical submission URL`);
+  const visibleMarkdownLink = new RegExp(`\\[[^\\]]+\\]\\(${escapeRegExp(SUBMISSION_URL)}\\)`);
+  check(visibleMarkdownLink.test(source), `${label} contains a visible canonical submission link`);
 }
 
 const requiredWelcomeCopy = [
@@ -256,6 +277,14 @@ for (const phrase of requiredWelcomeCopy) {
   check(welcome.includes(phrase), `Markdown welcome contains: ${phrase}`);
 }
 check(readme.includes('L1→L5 ladder'), 'README describes the five-level welcome ladder');
+const welcomeLevelSections = [...welcome.matchAll(/^### L([1-5])\s+—/gm)].map(match => match[1]);
+for (const level of ['1', '2', '3', '4', '5']) {
+  check(
+    welcomeLevelSections.filter(candidate => candidate === level).length === 1,
+    `Markdown welcome contains exactly one L${level} level section`,
+  );
+}
+check(welcomeLevelSections.length === 5, 'Markdown welcome contains exactly five L1-L5 level sections');
 for (const phrase of ['L1 to L4', 'four levels people sit at', 'lose one month of membership', 'Removed from Slack']) {
   check(!welcome.includes(phrase), `Markdown welcome omits stale copy: ${phrase}`);
 }
@@ -289,10 +318,35 @@ const requiredHtmlCopy = [
   '50-point cap per builder',
 ];
 for (const [label, source] of [['Static source', html], ['Publish candidate', publishHtml]]) {
+  const visibleHtml = htmlWithoutNonVisibleRegions(source);
   for (const phrase of requiredHtmlCopy) {
     check(source.includes(phrase), `${label} contains: ${phrase}`);
   }
-  check(source.includes(SUBMISSION_URL), `${label} contains the canonical submission URL`);
+  const visibleSubmissionLink = new RegExp(
+    `<a\\b[^>]*\\bhref=["']${escapeRegExp(SUBMISSION_URL)}["'][^>]*>[^<]+<\\/a>`,
+    'i',
+  );
+  check(visibleSubmissionLink.test(visibleHtml), `${label} contains a visible canonical submission link`);
+
+  let rubricFitTotal = 0;
+  for (const [track, expectedCount] of RUBRIC_FIT_COPY) {
+    const expression = new RegExp(
+      `<h4>Rubric fit<\\/h4><p>Use only the ${escapeRegExp(track)} parameter ladders and evidence rules on the Scoring page\\.<\\/p>`,
+      'g',
+    );
+    const actualCount = countMatches(visibleHtml, expression);
+    rubricFitTotal += actualCount;
+    check(actualCount === expectedCount, `${label} contains exactly ${expectedCount} ${track} Rubric fit blocks`);
+  }
+  check(rubricFitTotal === 82, `${label} contains exactly 82 track-specific Rubric fit blocks`);
+
+  for (const level of ['1', '2', '3', '4', '5']) {
+    const levelExpression = new RegExp(`<div class="ai-level-num">L${level}<\\/div>`, 'g');
+    check(
+      countMatches(visibleHtml, levelExpression) === 1,
+      `${label} welcome contains exactly one L${level} level block`,
+    );
+  }
   for (const phrase of [
     '<h4>Scores on</h4>',
     'Sarvam parameter',
