@@ -22,7 +22,7 @@ What it does:
 ## Pages
 
 - [00 Cover](00-cover.md) — title page
-- [01 Welcome](01-welcome.md) — where you are on the L1→L4 ladder
+- [01 Welcome](01-welcome.md) — where you are on the L1→L5 ladder
 - [02 How the week runs](02-how-the-week-runs.md) — day-by-day outcomes (Thu–Sun)
 - [03 Mindset](03-mindset.md) — the pledge
 - [04 Setup](04-setup.md) — install Claude Code + dependencies in ~30 min

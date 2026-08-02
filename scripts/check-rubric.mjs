@@ -40,9 +40,12 @@ const schema = JSON.parse(read('rubric/rubric.schema.json'));
 const scoring = read('09-scoring.md');
 const schedule = read('02-how-the-week-runs.md');
 const buildProcess = read('08-build-process.md');
+const welcome = read('01-welcome.md');
+const readme = read('README.md');
 const html = read('static-page/ai-immersion-handbook.html');
 const publishHtml = read('static-page/ai-immersion-handbook.publish.html');
 const STATIC_PAGE_CHARACTER_LIMIT = 1_024_000;
+const SUBMISSION_URL = 'https://growthx.club/ai-immersion/submit';
 
 check(contract.version === current, `rubric/CURRENT matches contract version ${contract.version}`);
 check(contract.version === '2.2.0', 'canonical rubric is version 2.2.0');
@@ -235,6 +238,28 @@ for (const phrase of requiredBuildProcessCopy) {
   check(buildProcess.includes(phrase), `Build process contains: ${phrase}`);
 }
 
+for (const [label, source] of [
+  ['Markdown schedule', schedule],
+  ['Markdown build process', buildProcess],
+]) {
+  check(source.includes(SUBMISSION_URL), `${label} contains the canonical submission URL`);
+}
+
+const requiredWelcomeCopy = [
+  'There are five levels people sit at with AI right now.',
+  'from wherever you\'re starting to L5.',
+  '### L5 — The finish line · the AI-first leader',
+  '### L1 to L5. Four days.',
+  'You **build and you distribute**.',
+];
+for (const phrase of requiredWelcomeCopy) {
+  check(welcome.includes(phrase), `Markdown welcome contains: ${phrase}`);
+}
+check(readme.includes('L1→L5 ladder'), 'README describes the five-level welcome ladder');
+for (const phrase of ['L1 to L4', 'four levels people sit at', 'lose one month of membership', 'Removed from Slack']) {
+  check(!welcome.includes(phrase), `Markdown welcome omits stale copy: ${phrase}`);
+}
+
 const requiredScoringCopy = [
   'Canonical rubric version: 2.2.0',
   '# 🤖 AI Agent as a Service rubric',
@@ -266,6 +291,38 @@ const requiredHtmlCopy = [
 for (const [label, source] of [['Static source', html], ['Publish candidate', publishHtml]]) {
   for (const phrase of requiredHtmlCopy) {
     check(source.includes(phrase), `${label} contains: ${phrase}`);
+  }
+  check(source.includes(SUBMISSION_URL), `${label} contains the canonical submission URL`);
+  for (const phrase of [
+    '<h4>Scores on</h4>',
+    'Sarvam parameter',
+    'Sarvam surfaces. This is the part that is scored',
+    'Additional Sarvam calls do not raise',
+    'where the score is',
+    'Voice Experience',
+    'Document Intelligence',
+    'Memory and Context',
+    'Job-to-be-done',
+    'Weak on:',
+    'This is the part that is scored',
+  ]) {
+    check(!source.toLowerCase().includes(phrase.toLowerCase()), `${label} omits legacy scoring copy: ${phrase}`);
+  }
+}
+
+const requiredHtmlWelcomeCopy = [
+  'There are five levels people sit at with AI right now.',
+  'from wherever you\'re starting to L5.',
+  'The finish line · the AI-first leader',
+  'L1 to L5. Four days.',
+  'build and you distribute',
+];
+for (const [label, source] of [['Static source', html], ['Publish candidate', publishHtml]]) {
+  for (const phrase of requiredHtmlWelcomeCopy) {
+    check(source.includes(phrase), `${label} welcome contains: ${phrase}`);
+  }
+  for (const phrase of ['L1 to L4', 'four levels people sit at', 'lose one month of membership', 'Removed from Slack']) {
+    check(!source.includes(phrase), `${label} welcome omits stale copy: ${phrase}`);
   }
 }
 

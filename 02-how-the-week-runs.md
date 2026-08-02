@@ -45,6 +45,8 @@ Four live Q&A check-ins: **Thursday at 8pm, Friday at 8pm, Saturday at 11am, and
 - **Everyone who submits gets feedback.** You receive specific, direct notes on how to push your work further. This is an individual review, not a ranking.
 - **If you submit, you are in the 20%.**
 
+**[Submit your AI Immersion project →](https://growthx.club/ai-immersion/submit)**
+
 ## The commitment
 
 ### Two evening Q&As. Two daytime check-ins. You build in between.

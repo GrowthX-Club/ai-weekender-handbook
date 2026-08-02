@@ -161,6 +161,7 @@ const required = [
   'Canonical rubric version: 2.2.0',
   'AI Agent as a Service rubric',
   '(2-1) × 4 = 4 pts',
+  'https://growthx.club/ai-immersion/submit',
 ];
 const forbidden = [
   'tracking toward the top two',
@@ -172,9 +173,25 @@ const forbidden = [
   '(2-1) × 15 = 15 pts',
   'AI Agent As A Service',
 ];
+const forbiddenCaseInsensitive = [
+  '<h4>Scores on</h4>',
+  'Sarvam parameter',
+  'Sarvam surfaces. This is the part that is scored',
+  'Additional Sarvam calls do not raise',
+  'where the score is',
+  'Voice Experience',
+  'Document Intelligence',
+  'Memory and Context',
+  'Job-to-be-done',
+  'Weak on:',
+  'This is the part that is scored',
+];
 
 const missing = required.filter(value => !publishCandidate.includes(value));
-const stale = forbidden.filter(value => publishCandidate.includes(value));
+const stale = [
+  ...forbidden.filter(value => publishCandidate.includes(value)),
+  ...forbiddenCaseInsensitive.filter(value => publishCandidate.toLowerCase().includes(value.toLowerCase())),
+];
 if (missing.length || stale.length) {
   throw new Error(`Publish copy check failed: ${JSON.stringify({ missing, stale })}`);
 }

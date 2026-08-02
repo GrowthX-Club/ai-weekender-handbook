@@ -126,6 +126,8 @@ Now you wire the actual product flow. The real thing people will use. Upload →
 
 Use the Sunday morning Q&A for final blockers, then keep racking points. Polish. Fix. Launch louder. Final submission closes at 8pm IST sharp.
 
+**[Submit your AI Immersion project →](https://growthx.club/ai-immersion/submit)**
+
 ### The simplest path to L2 by Friday
 
 If you have never touched code before, here is the dead-simple move: **start a waitlist landing page Thursday night and launch it by Friday 11am.** One screen. A sharp headline. A bulleted list of what you're building. An email field. A submit button. That's the first L2 proof.

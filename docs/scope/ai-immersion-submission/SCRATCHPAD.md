@@ -55,3 +55,17 @@ Chronological implementation ledger. Record source-of-truth findings, copy decis
 - The preferred in-app browser bootstrap failed with `Cannot redefine property: process`; verification used the documented `agent-browser` fallback against the local server.
 - `git diff --check` — PASS after the continuation changes.
 - No production write, publication, push, merge, or edit to the backend/frontend worktrees was performed.
+
+### Follow-up — submission CTA and handbook parity blockers
+
+- Added the canonical participant CTA `https://growthx.club/ai-immersion/submit` to `02-how-the-week-runs.md`, `08-build-process.md`, and the editable static page; regenerated the publish candidate. Both publication scripts now require the exact URL.
+- Replaced all 82 visible legacy `Scores on` blocks with track-specific `Rubric fit` guidance that sends builders to the rubric 2.2.0 Scoring page. Removed all visible `Sarvam parameter` scoring instructions and the remaining legacy dimension language. Sarvam APIs remain only as optional implementation surfaces, with explicit copy that integrations do not score by themselves.
+- Synced participant Markdown and the static page to the five-level L1 to L5 welcome ladder. Removed the stale membership/Slack sanction and updated the README ladder reference to L1 to L5.
+- The checker now rejects the old welcome/sanction copy and the legacy Idea Bank scoring vocabulary in both source and publish candidate.
+- `node scripts/check-rubric.mjs --json` — PASS, 629 checks.
+- Backend/frontend cross-worktree validation — PASS, 711 checks.
+- Legacy copy scan — PASS in source and publish candidate: zero `Scores on`, `Sarvam parameter`, `Voice Experience`, `Document Intelligence`, `Memory and Context`, `Job-to-be-done`, `Weak on:`, and `This is the part that is scored`; one canonical CTA and 82 `Rubric fit` blocks in each artifact.
+- Publication integrity — PASS: equal visible text, tag inventory, IDs, fragment links, scripts, and preformatted content. Source SHA-256 `5168a9d67dd14df03a2b5c49f80011b8b472012c9a2b2a0962421b631d912443`; publish candidate SHA-256 `3bbb3d7904af56e6ef963a3299f5b0f9b7aa08568e0e0bb16bf7bda2eb2492f4`; 14,950 characters remain under the GrowthX limit; `production_write_attempted: false`.
+- Browser verification — PASS for source and publish candidate: 11 pages, exactly one active page/nav item, six rubric tabs, five-level welcome without sanction, exact CTA/href, no legacy scoring labels, no blank page, error overlay, console errors, or page errors. The CTA was visually checked at 1440×1000 and 390×844; an Idea Bank card was expanded and its replacement `Rubric fit` guidance was visually confirmed.
+- Browser evidence: `/tmp/ai-immersion-handbook-source-cta-desktop.png`, `/tmp/ai-immersion-handbook-source-cta-mobile.png`, `/tmp/ai-immersion-handbook-publish-cta-desktop.png`, `/tmp/ai-immersion-handbook-publish-idea-rubric-fit.png`.
+- `git diff --check` — PASS. No production write, publication, push, or merge was performed.
